@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, Sun, Moon, FileText, ExternalLink } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { Drawer } from "vaul";
+import Image from "next/image";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -15,7 +17,7 @@ const navItems = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
 
   useEffect(() => {
@@ -25,6 +27,16 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle navigation click - close drawer and scroll
+  const handleNavClick = (href: string) => {
+    setIsDrawerOpen(false);
+    // Small delay to let drawer close animation start
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
 
   return (
     <motion.nav
@@ -40,9 +52,17 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           <a
             href="#"
-            className="text-xl font-bold tracking-tight hover:text-[var(--accent)] transition-colors"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            JF
+            <Image
+              src="/logo-icon.svg"
+              alt="Joey Fisher"
+              width={32}
+              height={32}
+              className="object-contain"
+              priority
+            />
+            <span className="text-xl font-bold tracking-tight">JF</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -73,49 +93,72 @@ export function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-2 text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              className="p-2.5 text-[var(--muted)] hover:text-[var(--foreground)] active:bg-[var(--card)] rounded-lg transition-colors"
               aria-label="Toggle theme"
             >
-              {mounted && (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />)}
+              {mounted && (theme === "dark" ? <Sun size={20} /> : <Moon size={20} />)}
             </button>
-            <button
-              className="text-[var(--foreground)]"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+
+            {/* Vaul Drawer for Mobile */}
+            <Drawer.Root open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+              <Drawer.Trigger asChild>
+                <button
+                  className="p-2.5 text-[var(--foreground)] active:bg-[var(--card)] rounded-lg transition-colors"
+                  aria-label="Open menu"
+                >
+                  <Menu size={22} />
+                </button>
+              </Drawer.Trigger>
+
+              <Drawer.Portal>
+                <Drawer.Overlay className="fixed inset-0 bg-black/60 z-50" />
+                <Drawer.Content className="fixed bottom-0 left-0 right-0 z-50 outline-none">
+                  <div className="bg-[var(--card)] rounded-t-2xl">
+                    {/* Drag handle */}
+                    <div className="flex justify-center pt-4 pb-2">
+                      <div className="w-12 h-1.5 bg-[var(--border)] rounded-full" />
+                    </div>
+
+                    {/* Navigation items */}
+                    <nav className="px-6 pb-8">
+                      <div className="space-y-1">
+                        {navItems.map((item) => (
+                          <button
+                            key={item.name}
+                            onClick={() => handleNavClick(item.href)}
+                            className="w-full flex items-center gap-3 py-4 text-lg text-[var(--foreground)] hover:text-[var(--accent)] active:bg-[var(--background)] rounded-xl px-4 -mx-4 transition-colors text-left"
+                          >
+                            {item.name}
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Resume button */}
+                      <div className="mt-6 pt-6 border-t border-[var(--border)]">
+                        <a
+                          href="/JoeyFisher_Resume.pdf"
+                          target="_blank"
+                          onClick={() => setIsDrawerOpen(false)}
+                          className="flex items-center justify-center gap-2 w-full py-4 bg-[var(--accent)] hover:bg-[var(--accent-hover)] active:bg-[var(--accent-hover)] text-white rounded-xl font-medium transition-colors"
+                        >
+                          <FileText size={18} />
+                          View Resume
+                          <ExternalLink size={14} />
+                        </a>
+                      </div>
+
+                      {/* Safe area padding for devices with home indicator */}
+                      <div className="h-safe-area-inset-bottom" />
+                    </nav>
+                  </div>
+                </Drawer.Content>
+              </Drawer.Portal>
+            </Drawer.Root>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden pt-4 pb-2"
-          >
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-2 text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
-              >
-                {item.name}
-              </a>
-            ))}
-            <a
-              href="/JoeyFisher_Resume.pdf"
-              target="_blank"
-              className="inline-block mt-2 px-4 py-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded-lg transition-colors"
-            >
-              Resume
-            </a>
-          </motion.div>
-        )}
       </div>
     </motion.nav>
   );
