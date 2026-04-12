@@ -16,13 +16,12 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "SportsManager",
+    title: "SyncedSport",
     description:
-      "Full-stack sports league management platform with AI-powered referee scheduling, team management, and comprehensive league administration.",
+      "AI-powered sports scheduling platform that automates referee assignments for leagues and associations.",
     longDescription:
-      "A comprehensive solution for sports leagues to manage referees, players, coaches, and teams. Features automated scheduling with AI/LLM integration for intelligent referee assignments. Currently in active development.",
-    tech: ["TypeScript", "React", "Node.js", "PostgreSQL", "AI/ML"],
-    github: "https://github.com/fisherjoey/SportsManager",
+      "SyncedSport is an AI-powered scheduling platform built for sports leagues and officiating associations. It automates referee assignments using intelligent matching, handles availability management, and streamlines communication between assignors and officials. Currently in active development with launch planned for Q2 2025.",
+    tech: ["TypeScript", "Next.js", "Node.js", "PostgreSQL", "AI/LLM"],
     live: "https://syncedsport.com",
     images: {
       dark: [
@@ -94,6 +93,30 @@ export const projects: Project[] = [
         "/projects/quest-canada/04-dashboards-light.png",
         "/projects/quest-canada/05-analytics-light.png",
         "/projects/quest-canada/03-project-light.png",
+      ],
+    },
+    featured: true,
+  },
+  {
+    title: "ChordApp",
+    description:
+      "Personal chord library with web scraping, multi-source API integration, and performance tools like transpose, auto-scroll, and setlists.",
+    longDescription:
+      "A chord library app for musicians that rivals Ultimate Guitar's feature set. Search for any song and automatically import chord sheets and lyrics from multiple sources. Includes transpose, capo support, auto-scroll, metronome, setlist management, and PDF export. Under the hood, I built a custom web scraper that extracts data from different page formats, integrates multiple music APIs, and uses fuzzy matching to deduplicate results.",
+    tech: ["TypeScript", "React", "Web Scraping", "Supabase", "REST APIs"],
+    live: "https://chords.joeyfishertech.com",
+    images: {
+      dark: [
+        "/projects/chordapp/01-home-dark.png",
+        "/projects/chordapp/02-search-dark.png",
+        "/projects/chordapp/03-viewer-dark.png",
+        "/projects/chordapp/04-setlist-dark.png",
+      ],
+      light: [
+        "/projects/chordapp/01-home-light.png",
+        "/projects/chordapp/02-search-light.png",
+        "/projects/chordapp/03-viewer-light.png",
+        "/projects/chordapp/04-setlist-light.png",
       ],
     },
     featured: true,
