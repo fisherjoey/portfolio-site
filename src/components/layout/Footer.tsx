@@ -10,9 +10,19 @@ export default function Footer() {
   return (
     <footer className="border-t border-[var(--surface-border)] mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-[var(--text-muted)]">
-          © {year} Joey Fisher. Built with React + Vite.
-        </p>
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+          <p className="text-sm text-[var(--text-muted)]">
+            © {year} Joey Fisher. Built with React + Vite.
+          </p>
+          <a
+            href="https://syncedtech.ca"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-mono text-[var(--color-brand-accent)] hover:text-[var(--color-brand-accent-hover)] inline-flex items-center gap-1"
+          >
+            SyncedTech <span aria-hidden="true">↗</span>
+          </a>
+        </div>
         <div className="flex items-center gap-2">
           <a
             href={GITHUB_URL}
