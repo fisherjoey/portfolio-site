@@ -3,9 +3,9 @@
 /* ─── Design Tokens ─── */
 :root {
   /* Typography Scale */
-  --heading-h1: clamp(2.25rem, 5vw, 4.5rem);
-  --heading-h2: clamp(1.875rem, 3vw, 2.25rem);
-  --heading-h3: clamp(1.125rem, 2vw, 1.25rem);
+  --heading-h1: clamp(2.5rem, 6vw, 5rem);
+  --heading-h2: clamp(1.875rem, 3.2vw, 2.5rem);
+  --heading-h3: clamp(1.125rem, 2vw, 1.375rem);
   --text-body: 1rem;
   --text-sm: 0.875rem;
   --text-xs: 0.75rem;
@@ -36,76 +36,76 @@
   --content-standard: 56rem;
   --content-wide: 64rem;
 
-  /* Shape */
+  /* Shape — editorial: small radii */
   --radius-card: 4px;
-  --radius-button: 4px;
-  --radius-input: 4px;
+  --radius-button: 3px;
+  --radius-input: 3px;
 
   /* Text Transform */
   --heading-transform: none;
-  --heading-tracking: -0.01em;
+  --heading-tracking: -0.005em;
   --button-transform: none;
-  --button-tracking: 0.02em;
+  --button-tracking: 0.01em;
   --label-transform: uppercase;
-  --label-tracking: 0.18em;
+  --label-tracking: 0.14em;
 
   /* Borders */
   --button-border-width: 1px;
   --card-border-width: 1px;
 
-  /* Shadows */
+  /* Shadows — flat editorial */
   --shadow-card: none;
-  --shadow-card-hover: 0 0 30px rgba(90, 107, 154, 0.10);
-  --shadow-float: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 1px 2px rgba(26, 26, 26, 0.06), 0 8px 24px rgba(26, 26, 26, 0.06);
+  --shadow-float: 0 8px 30px rgba(26, 26, 26, 0.10);
 
-  /* Glow */
-  --glow-color: rgba(90, 107, 154, 0.10);
-  --glow-color-strong: rgba(90, 107, 154, 0.18);
+  /* Glow (unused in light, kept for safety) */
+  --glow-color: rgba(29, 58, 95, 0.06);
+  --glow-color-strong: rgba(29, 58, 95, 0.12);
 
-  /* ─── Synced-Tech palette: charcoal base + muted indigo accent ─── */
-  --color-brand-black: #0e1117;
-  --color-brand-white: #e6e8ec;
-  --color-brand-accent: #5a6b9a;
-  --color-brand-accent-hover: #6878a8;
-  --color-brand-gray-dark: #161a22;
-  --color-brand-gray-medium: #1e232d;
-  --color-brand-gray-light: #f0f1f4;
-  --color-brand-overlay: #0e1117;
+  /* ─── Light editorial palette: warm paper + deep ink-blue accent ─── */
+  --color-brand-black: #FAF8F4;
+  --color-brand-white: #1A1A1A;
+  --color-brand-accent: #1D3A5F;
+  --color-brand-accent-hover: #294F7E;
+  --color-brand-gray-dark: #FFFFFF;
+  --color-brand-gray-medium: #F1EDE6;
+  --color-brand-gray-light: #1A1A1A;
+  --color-brand-overlay: #FAF8F4;
 
   /* Semantic text */
-  --text-primary: #e6e8ec;
-  --text-secondary: #a3a9b5;
-  --text-muted: #7a8090;
-  --text-faint: #5d6373;
-  --text-disabled: #4a4f5d;
-  --text-on-accent: #ffffff;
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A50;
+  --text-muted: #6B6B73;
+  --text-faint: #6B6B73;
+  --text-disabled: #9A9AA2;
+  --text-on-accent: #FFFFFF;
 
   /* Semantic surfaces */
-  --surface-primary: #0e1117;
-  --surface-raised: #161a22;
-  --surface-overlay: #1e232d;
-  --surface-border: rgba(230, 232, 236, 0.06);
-  --surface-border-strong: rgba(230, 232, 236, 0.10);
+  --surface-primary: #FAF8F4;
+  --surface-raised: #FFFFFF;
+  --surface-overlay: #F1EDE6;
+  --surface-border: rgba(26, 26, 26, 0.10);
+  --surface-border-strong: rgba(26, 26, 26, 0.18);
 
   /* Secondary accents (restrained) */
-  --accent-secondary: #a08758;
-  --accent-tertiary: #7a8595;
-  --surface-feature: #131720;
-  --surface-feature-text: #e6e8ec;
+  --accent-secondary: #A08758;
+  --accent-tertiary: #6B7585;
+  --surface-feature: #F4F0E8;
+  --surface-feature-text: #1A1A1A;
 }
 
 @theme {
-  --color-brand-black: #0e1117;
-  --color-brand-white: #e6e8ec;
-  --color-brand-accent: #5a6b9a;
-  --color-brand-accent-hover: #6878a8;
-  --color-brand-gray-dark: #161a22;
-  --color-brand-gray-medium: #1e232d;
-  --color-brand-gray-light: #f0f1f4;
+  --color-brand-black: #FAF8F4;
+  --color-brand-white: #1A1A1A;
+  --color-brand-accent: #1D3A5F;
+  --color-brand-accent-hover: #294F7E;
+  --color-brand-gray-dark: #FFFFFF;
+  --color-brand-gray-medium: #F1EDE6;
+  --color-brand-gray-light: #1A1A1A;
 
-  --font-heading: 'Chakra Petch', sans-serif;
-  --font-body: 'Outfit', sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', 'Fira Code', Menlo, Consolas, monospace;
+  --font-heading: 'Fraunces', ui-serif, Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
@@ -144,7 +144,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid rgba(90, 107, 154, 0.7);
+    outline: 2px solid rgba(29, 58, 95, 0.6);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -156,13 +156,13 @@
 
 /* ─── Surface Contexts ─── */
 .surface-dark {
-  --text-primary: #e6e8ec;
-  --text-secondary: #a3a9b5;
-  --text-muted: #7a8090;
-  --text-faint: #5d6373;
-  --surface-border: rgba(230, 232, 236, 0.06);
-  --surface-border-strong: rgba(230, 232, 236, 0.10);
-  color: #e6e8ec;
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A50;
+  --text-muted: #6B6B73;
+  --text-faint: #6B6B73;
+  --surface-border: rgba(26, 26, 26, 0.10);
+  --surface-border-strong: rgba(26, 26, 26, 0.18);
+  color: #1A1A1A;
 }
 
 .surface-raised {
@@ -196,6 +196,7 @@
 
 /* ─── Utility classes ─── */
 .label {
+  font-family: var(--font-mono);
   text-transform: var(--label-transform);
   letter-spacing: var(--label-tracking);
   font-size: var(--text-xs);

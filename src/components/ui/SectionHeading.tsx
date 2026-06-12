@@ -18,7 +18,7 @@ export default function SectionHeading({
       {eyebrow && (
         <p className="label mb-3 text-[var(--color-brand-accent)]">{eyebrow}</p>
       )}
-      <h2 className="font-heading text-3xl md:text-4xl font-semibold text-[var(--text-primary)] max-w-3xl">
+      <h2 className="font-heading text-3xl md:text-5xl font-medium text-[var(--text-primary)] max-w-3xl leading-[1.08]">
         {children}
       </h2>
       {description && (

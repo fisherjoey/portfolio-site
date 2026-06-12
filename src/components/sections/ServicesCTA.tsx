@@ -15,7 +15,7 @@ export default function ServicesCTA() {
     <section id="services" className="py-16 md:py-20 scroll-mt-20">
       <Container>
         <div className="relative overflow-hidden rounded-lg border border-[var(--surface-border)] bg-[var(--surface-feature)] p-8 md:p-12">
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_85%_30%,rgba(90,107,154,0.18),transparent_55%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_85%_20%,rgba(29,58,95,0.06),transparent_55%)]" />
           <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 items-end">
             <div>
               <p className="label text-[var(--color-brand-accent)] mb-3">IT Services</p>
@@ -31,7 +31,7 @@ export default function ServicesCTA() {
                 {services.map((s) => (
                   <li
                     key={s}
-                    className="px-3 py-1.5 text-xs rounded-full border border-[var(--surface-border-strong)] bg-[var(--surface-overlay)]/60 text-[var(--text-secondary)]"
+                    className="px-3 py-1.5 text-xs font-mono rounded-full border border-[var(--surface-border-strong)] bg-[var(--surface-raised)] text-[var(--text-secondary)]"
                   >
                     {s}
                   </li>

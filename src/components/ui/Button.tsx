@@ -15,7 +15,7 @@ interface ButtonProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   accent:
-    'bg-[var(--color-brand-accent)] text-white border border-[var(--color-brand-accent)] hover:bg-[var(--color-brand-accent-hover)] hover:border-[var(--color-brand-accent-hover)]',
+    'bg-[var(--color-brand-accent)] text-[var(--text-on-accent)] border border-[var(--color-brand-accent)] hover:bg-[var(--color-brand-accent-hover)] hover:border-[var(--color-brand-accent-hover)]',
   outline:
     'border border-[var(--surface-border-strong)] text-[var(--text-primary)] hover:border-[var(--color-brand-accent)] hover:text-[var(--color-brand-accent)]',
   ghost:
