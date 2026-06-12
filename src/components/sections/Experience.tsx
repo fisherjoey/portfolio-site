@@ -41,24 +41,25 @@ export default function Experience() {
       <Container>
         <SectionHeading eyebrow="Experience">Where I've worked.</SectionHeading>
 
-        <ol className="space-y-8 max-w-3xl">
+        <ol className="space-y-10 max-w-3xl border-l border-[var(--surface-border)] pl-6 md:pl-8">
           {experience.map((e) => (
             <li
               key={e.role + e.company}
-              className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-2 md:gap-6"
+              className="relative grid grid-cols-1 md:grid-cols-[1fr_auto] gap-2 md:gap-6"
             >
+              <span className="absolute -left-[1.65rem] md:-left-[2.15rem] top-1.5 w-2.5 h-2.5 rounded-full bg-[var(--color-brand-accent)] ring-4 ring-[var(--surface-primary)]" />
               <div>
-                <h3 className="font-heading text-lg font-semibold text-[var(--text-primary)]">
+                <h3 className="font-heading text-xl font-medium text-[var(--text-primary)]">
                   {e.role}
                 </h3>
-                <p className="text-sm text-[var(--text-muted)] mt-0.5">
+                <p className="text-sm font-mono text-[var(--text-muted)] mt-0.5">
                   {e.company} · {e.location}
                 </p>
                 <p className="text-sm md:text-base text-[var(--text-secondary)] mt-3 leading-relaxed">
                   {e.summary}
                 </p>
               </div>
-              <p className="text-sm text-[var(--text-faint)] md:text-right md:whitespace-nowrap md:pt-1">
+              <p className="text-sm font-mono text-[var(--text-faint)] md:text-right md:whitespace-nowrap md:pt-1">
                 {e.dates}
               </p>
             </li>
