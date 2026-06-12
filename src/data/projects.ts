@@ -236,6 +236,9 @@ export const projects: Project[] = [
     tech: ['TypeScript', 'React', 'Vite', 'Client-side', 'Binary parsing'],
     github: 'https://github.com/fisherjoey/tt-save-editor',
     live: 'https://tt-save-editor.vercel.app',
+    images: {
+      dark: ['/projects/tt-save-editor/01-home.png'],
+    },
     featured: false,
   },
 ]
