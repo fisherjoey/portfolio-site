@@ -64,6 +64,17 @@ export default function AboutContact() {
               <li>Jr. Software Developer @ PBS Systems</li>
               <li>SyncedSport in pilot with one live league</li>
               <li>Maintaining SyncedBase + client sites</li>
+              <li>
+                Consulting through{' '}
+                <a
+                  href="https://syncedtech.ca"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-brand-accent)] hover:underline"
+                >
+                  SyncedTech ↗
+                </a>
+              </li>
               <li>Talking to interesting people</li>
             </ul>
           </aside>
