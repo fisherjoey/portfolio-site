@@ -7,7 +7,7 @@ interface PortraitProps {
 }
 
 export default function Portrait({
-  src = '/portrait.png',
+  src = '/portrait.webp',
   alt = 'Drawn portrait of Joey Fisher',
   className = '',
 }: PortraitProps) {
