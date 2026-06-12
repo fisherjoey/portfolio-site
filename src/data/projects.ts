@@ -12,6 +12,10 @@ export interface Project {
   longDescription?: string
   tech: string[]
   github?: string
+  /** Optional second repo link (e.g. a Firefox build alongside a Chrome one). */
+  githubSecondary?: string
+  /** Label for the secondary repo link. Defaults to "Repo 2". */
+  githubSecondaryLabel?: string
   live?: string
   images?: ProjectImages
   featured: boolean
@@ -207,6 +211,31 @@ export const projects: Project[] = [
     longDescription:
       "Mirrors Stremio's plugin-and-source architecture, but as a React Native mobile app instead of a desktop client. Same model: pluggable content sources feeding a unified library and a single playback layer. The reason this exists separate from Stremio is offline downloads. I can stash episodes on my phone before a flight and watch them on the plane. Runs on Expo, expo-router for navigation, native media playback under the hood.",
     tech: ['React Native', 'Expo', 'TypeScript', 'expo-router', 'Media Playback'],
+    featured: false,
+  },
+  {
+    title: 'React Annotator',
+    category: 'personal',
+    description:
+      'Browser extensions (Chrome + Firefox) for annotating React components on any page and exporting the selection straight to Claude Code.',
+    longDescription:
+      "Two browser extensions that let me point at any React component on a live page, annotate it, and hand the exact selection to Claude Code instead of describing it in prose. Walks the React fiber tree to resolve the component under the cursor, captures props/source location, and serializes a payload Claude can act on. Ships for both Chrome and Firefox.",
+    tech: ['JavaScript', 'Browser Extension (MV3)', 'React Internals', 'Claude Code'],
+    github: 'https://github.com/fisherjoey/react-annotator-chrome',
+    githubSecondary: 'https://github.com/fisherjoey/react-annotator-firefox',
+    githubSecondaryLabel: 'Firefox',
+    featured: false,
+  },
+  {
+    title: 'TT Save Editor',
+    category: 'personal',
+    description:
+      "Browser save editor for LEGO Batman: Legacy of the Dark Knight. Fixes the \"created on an updated version\" error and unlocks collectibles, characters, and missions — 100% client-side, nothing uploaded.",
+    longDescription:
+      "A fully client-side save editor for LEGO Batman: Legacy of the Dark Knight. Parses the binary save format in the browser so nothing ever leaves your machine, fixes the common \"created on an updated version\" load error, and lets you unlock collectibles and characters or edit progress directly. The interesting part is reverse-engineering the save layout and doing the byte-level edits safely in TypeScript.",
+    tech: ['TypeScript', 'React', 'Vite', 'Client-side', 'Binary parsing'],
+    github: 'https://github.com/fisherjoey/tt-save-editor',
+    live: 'https://tt-save-editor.vercel.app',
     featured: false,
   },
 ]
