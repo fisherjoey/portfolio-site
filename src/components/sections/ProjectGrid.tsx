@@ -151,6 +151,7 @@ function ProjectCard({
           <button
             type="button"
             onClick={onOpen}
+            aria-label={hasImages ? `View gallery for ${project.title}` : `Details for ${project.title}`}
             className="ml-auto text-xs font-mono text-[var(--color-brand-accent)] hover:underline"
           >
             {hasImages ? 'View gallery' : 'Details'} →

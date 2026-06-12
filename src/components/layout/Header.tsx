@@ -88,13 +88,14 @@ export default function Header() {
           className="md:hidden w-12 h-12 flex items-center justify-center text-[var(--text-primary)]"
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
+          aria-controls="mobile-nav"
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-[var(--surface-border)] bg-[var(--surface-primary)]">
+        <div id="mobile-nav" className="md:hidden border-t border-[var(--surface-border)] bg-[var(--surface-primary)]">
           <nav className="flex flex-col py-2" aria-label="Mobile navigation">
             {NAV_LINKS.map((link) => (
               <a
