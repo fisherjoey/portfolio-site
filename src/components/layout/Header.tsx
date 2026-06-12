@@ -13,6 +13,7 @@ const NAV_LINKS = [
 
 const GITHUB_URL = 'https://github.com/fisherjoey'
 const EMAIL = 'joey.fisherucalgary@gmail.com'
+const SYNCEDTECH_URL = 'https://syncedtech.ca'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -29,7 +30,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[var(--color-brand-black)]/95 backdrop-blur-md border-b border-[var(--surface-border)]'
+          ? 'bg-[var(--surface-primary)]/90 backdrop-blur-md border-b border-[var(--surface-border)]'
           : 'bg-transparent'
       }`}
     >
@@ -53,6 +54,15 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          <a
+            href={SYNCEDTECH_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-2 text-sm font-mono text-[var(--color-brand-accent)] hover:text-[var(--color-brand-accent-hover)] transition-colors inline-flex items-center gap-1"
+          >
+            SyncedTech
+            <span aria-hidden="true">↗</span>
+          </a>
           <div className="ml-2 flex items-center gap-1">
             <a
               href={GITHUB_URL}
@@ -84,7 +94,7 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-[var(--surface-border)] bg-[var(--color-brand-black)]">
+        <div className="md:hidden border-t border-[var(--surface-border)] bg-[var(--surface-primary)]">
           <nav className="flex flex-col py-2" aria-label="Mobile navigation">
             {NAV_LINKS.map((link) => (
               <a
@@ -96,6 +106,15 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
+            <a
+              href={SYNCEDTECH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="px-6 py-3 text-sm font-mono text-[var(--color-brand-accent)] inline-flex items-center gap-1"
+            >
+              SyncedTech <span aria-hidden="true">↗</span>
+            </a>
             <div className="flex items-center gap-2 px-6 py-3 border-t border-[var(--surface-border)]">
               <a
                 href={GITHUB_URL}
