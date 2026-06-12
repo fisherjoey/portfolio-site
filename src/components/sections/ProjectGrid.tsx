@@ -33,10 +33,11 @@ export default function ProjectGrid({
         </SectionHeading>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <ProjectCard
               key={project.title}
               project={project}
+              index={i}
               onOpen={() => setOpenProject(project)}
             />
           ))}
@@ -50,24 +51,32 @@ export default function ProjectGrid({
   )
 }
 
-function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void }) {
+function ProjectCard({
+  project,
+  index,
+  onOpen,
+}: {
+  project: Project
+  index: number
+  onOpen: () => void
+}) {
   const cover = project.images?.dark?.[0] ?? project.images?.light?.[0]
   const hasImages = (project.images?.dark?.length ?? project.images?.light?.length ?? 0) > 0
   const isContain = project.imageMode === 'contain'
 
   return (
-    <article className="group relative flex flex-col bg-[var(--surface-raised)] border border-[var(--surface-border)] rounded-lg overflow-hidden hover:border-[var(--color-brand-accent)]/50 transition-colors">
+    <article className="group relative flex flex-col bg-[var(--surface-raised)] border border-[var(--surface-border)] rounded-[var(--radius-card)] overflow-hidden transition-all duration-300 hover:border-[var(--surface-border-strong)] hover:shadow-[var(--shadow-card-hover)]">
       <button
         type="button"
         onClick={onOpen}
         aria-label={`Open details for ${project.title}`}
-        className="relative aspect-[16/10] block w-full overflow-hidden bg-[var(--surface-overlay)] cursor-pointer text-left"
+        className="relative aspect-[16/10] block w-full overflow-hidden bg-[var(--surface-overlay)] cursor-pointer text-left border-b border-[var(--surface-border)]"
       >
         {cover ? (
           <img
             src={cover}
             alt={`${project.title} preview`}
-            className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${
+            className={`w-full h-full transition-transform duration-500 group-hover:scale-[1.03] ${
               isContain ? 'object-contain p-10 sm:p-12' : 'object-cover'
             }`}
             loading="lazy"
@@ -76,15 +85,12 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
         ) : (
           <PlaceholderArt title={project.title} />
         )}
-        {!isContain && (
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity" />
-        )}
         {project.status ? (
-          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 text-white text-xs font-medium border border-white/15 backdrop-blur-sm">
+          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[var(--surface-raised)]/90 text-[var(--text-secondary)] text-xs font-mono border border-[var(--surface-border-strong)] backdrop-blur-sm">
             {project.status}
           </span>
         ) : project.featured ? (
-          <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--color-brand-accent)] text-white text-xs font-medium shadow-md shadow-black/30">
+          <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--color-brand-accent)] text-[var(--text-on-accent)] text-xs font-mono shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-white" />
             Featured
           </span>
@@ -92,9 +98,14 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
       </button>
 
       <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-heading text-lg font-semibold text-[var(--text-primary)] mb-2">
-          {project.title}
-        </h3>
+        <div className="flex items-baseline gap-3 mb-2">
+          <span className="font-mono text-xs text-[var(--text-muted)] tabular-nums pt-1">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <h3 className="font-heading text-xl font-medium text-[var(--text-primary)] leading-snug">
+            {project.title}
+          </h3>
+        </div>
         <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4 flex-1">
           {project.description}
         </p>
@@ -103,7 +114,7 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
           {project.tech.slice(0, 5).map((t) => (
             <span
               key={t}
-              className="px-2 py-0.5 text-xs rounded-full bg-[var(--surface-overlay)] text-[var(--text-muted)] border border-[var(--surface-border)]"
+              className="px-2 py-0.5 text-xs font-mono rounded-full bg-[var(--surface-overlay)] text-[var(--text-muted)] border border-[var(--surface-border)]"
             >
               {t}
             </span>
@@ -140,7 +151,7 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
           <button
             type="button"
             onClick={onOpen}
-            className="ml-auto text-xs text-[var(--color-brand-accent)] hover:underline"
+            className="ml-auto text-xs font-mono text-[var(--color-brand-accent)] hover:underline"
           >
             {hasImages ? 'View gallery' : 'Details'} →
           </button>
@@ -153,11 +164,11 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
 function PlaceholderArt({ title }: { title: string }) {
   const initial = title.charAt(0).toUpperCase()
   return (
-    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[var(--surface-overlay)] via-[var(--surface-feature)] to-[var(--surface-raised)] relative">
-      <span className="font-heading text-7xl font-bold text-[var(--color-brand-accent)]/40">
+    <div className="w-full h-full flex items-center justify-center bg-[var(--surface-feature)] relative">
+      <span className="font-heading text-7xl font-medium text-[var(--color-brand-accent)]/30">
         {initial}
       </span>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(90,107,154,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(29,58,95,0.06),transparent_55%)]" />
     </div>
   )
 }
