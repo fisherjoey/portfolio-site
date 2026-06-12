@@ -58,7 +58,7 @@ export default function ProjectLightbox({ project, onClose }: ProjectLightboxPro
         onClick={(e) => e.stopPropagation()}
       >
         {images.length > 0 && (
-          <div className="relative bg-black aspect-video">
+          <div className="relative bg-[var(--surface-overlay)] aspect-video">
             <img
               src={images[index]}
               alt={`${project.title} screenshot ${index + 1}`}
@@ -109,6 +109,17 @@ export default function ProjectLightbox({ project, onClose }: ProjectLightboxPro
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   GitHub
+                </a>
+              )}
+              {project.githubSecondary && (
+                <a
+                  href={project.githubSecondary}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-full border border-[var(--surface-border-strong)] text-[var(--text-secondary)] hover:text-[var(--color-brand-accent)] hover:border-[var(--color-brand-accent)] transition-colors"
+                >
+                  <GithubIcon className="w-3.5 h-3.5" />
+                  {project.githubSecondaryLabel ?? 'Repo 2'}
                 </a>
               )}
               {project.live && (
