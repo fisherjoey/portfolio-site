@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─── */
+:root {
+  /* Typography Scale */
+  --heading-h1: clamp(2.25rem, 5vw, 4.5rem);
+  --heading-h2: clamp(1.875rem, 3vw, 2.25rem);
+  --heading-h3: clamp(1.125rem, 2vw, 1.25rem);
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+  --text-xxs: 0.6875rem;
+
+  /* Spacing Scale */
+  --section-py-sm: 3rem;
+  --section-py-md: 4rem;
+  --section-py-lg: 6rem;
+
+  /* Card Padding */
+  --card-p-sm: 1rem;
+  --card-p-md: 1.5rem;
+  --card-p-lg: 2rem;
+
+  /* Animation Durations */
+  --duration-fast: 200ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+
+  /* Accent Bar */
+  --accent-bar-w: 4rem;
+  --accent-bar-h: 2px;
+
+  /* Content Max Widths */
+  --content-narrow: 48rem;
+  --content-standard: 56rem;
+  --content-wide: 64rem;
+
+  /* Shape */
+  --radius-card: 4px;
+  --radius-button: 4px;
+  --radius-input: 4px;
+
+  /* Text Transform */
+  --heading-transform: none;
+  --heading-tracking: -0.01em;
+  --button-transform: none;
+  --button-tracking: 0.02em;
+  --label-transform: uppercase;
+  --label-tracking: 0.18em;
+
+  /* Borders */
+  --button-border-width: 1px;
+  --card-border-width: 1px;
+
+  /* Shadows */
+  --shadow-card: none;
+  --shadow-card-hover: 0 0 30px rgba(90, 107, 154, 0.10);
+  --shadow-float: 0 4px 24px rgba(0, 0, 0, 0.4);
+
+  /* Glow */
+  --glow-color: rgba(90, 107, 154, 0.10);
+  --glow-color-strong: rgba(90, 107, 154, 0.18);
+
+  /* ─── Synced-Tech palette: charcoal base + muted indigo accent ─── */
+  --color-brand-black: #0e1117;
+  --color-brand-white: #e6e8ec;
+  --color-brand-accent: #5a6b9a;
+  --color-brand-accent-hover: #6878a8;
+  --color-brand-gray-dark: #161a22;
+  --color-brand-gray-medium: #1e232d;
+  --color-brand-gray-light: #f0f1f4;
+  --color-brand-overlay: #0e1117;
+
+  /* Semantic text */
+  --text-primary: #e6e8ec;
+  --text-secondary: #a3a9b5;
+  --text-muted: #7a8090;
+  --text-faint: #5d6373;
+  --text-disabled: #4a4f5d;
+  --text-on-accent: #ffffff;
+
+  /* Semantic surfaces */
+  --surface-primary: #0e1117;
+  --surface-raised: #161a22;
+  --surface-overlay: #1e232d;
+  --surface-border: rgba(230, 232, 236, 0.06);
+  --surface-border-strong: rgba(230, 232, 236, 0.10);
+
+  /* Secondary accents (restrained) */
+  --accent-secondary: #a08758;
+  --accent-tertiary: #7a8595;
+  --surface-feature: #131720;
+  --surface-feature-text: #e6e8ec;
+}
+
+@theme {
+  --color-brand-black: #0e1117;
+  --color-brand-white: #e6e8ec;
+  --color-brand-accent: #5a6b9a;
+  --color-brand-accent-hover: #6878a8;
+  --color-brand-gray-dark: #161a22;
+  --color-brand-gray-medium: #1e232d;
+  --color-brand-gray-light: #f0f1f4;
+
+  --font-heading: 'Chakra Petch', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Fira Code', Menlo, Consolas, monospace;
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+  --color-surface-primary: var(--surface-primary);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-tertiary: var(--accent-tertiary);
+  --color-surface-feature: var(--surface-feature);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-brand-black);
+    color: var(--text-primary);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: var(--heading-tracking);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(90, 107, 154, 0.7);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ─── Surface Contexts ─── */
+.surface-dark {
+  --text-primary: #e6e8ec;
+  --text-secondary: #a3a9b5;
+  --text-muted: #7a8090;
+  --text-faint: #5d6373;
+  --surface-border: rgba(230, 232, 236, 0.06);
+  --surface-border-strong: rgba(230, 232, 236, 0.10);
+  color: #e6e8ec;
+}
+
+.surface-raised {
+  background-color: var(--surface-raised);
+}
+
+.surface-feature {
+  background-color: var(--surface-feature);
+}
+
+/* ─── Animations ─── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.stagger-reveal > * {
+  animation: fade-in-up 0.6s ease-out both;
+}
+.stagger-reveal > *:nth-child(1) { animation-delay: 0.06s; }
+.stagger-reveal > *:nth-child(2) { animation-delay: 0.14s; }
+.stagger-reveal > *:nth-child(3) { animation-delay: 0.22s; }
+.stagger-reveal > *:nth-child(4) { animation-delay: 0.30s; }
+.stagger-reveal > *:nth-child(5) { animation-delay: 0.38s; }
+.stagger-reveal > *:nth-child(6) { animation-delay: 0.46s; }
+
+/* ─── Utility classes ─── */
+.label {
+  text-transform: var(--label-transform);
+  letter-spacing: var(--label-tracking);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 12px 24px;
+  background: var(--color-brand-accent);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-to-content:focus {
+  top: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

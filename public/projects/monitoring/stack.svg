@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+  <defs>
+    <marker id="arrowMon" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10" fill="#5d6373"/>
+    </marker>
+    <marker id="arrowAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0,0 L10,5 L0,10" fill="#5a6b9a"/>
+    </marker>
+    <linearGradient id="appGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1f2c"/>
+      <stop offset="1" stop-color="#11151e"/>
+    </linearGradient>
+  </defs>
+
+  <text x="600" y="38" text-anchor="middle" fill="#e6e8ec" font-size="17" font-weight="600">Monitoring platform architecture</text>
+
+  <!-- ─────── Sources row (y = 60–110) ─────── -->
+  <g font-size="13" font-weight="500">
+    <rect x="80"  y="60" width="170" height="50" rx="8" fill="#1e232d" stroke="#3a414f"/>
+    <text x="165" y="91" text-anchor="middle" fill="#a3a9b5">Custom exporters</text>
+    <rect x="280" y="60" width="170" height="50" rx="8" fill="#1e232d" stroke="#3a414f"/>
+    <text x="365" y="91" text-anchor="middle" fill="#a3a9b5">SSL / cert checks</text>
+    <rect x="480" y="60" width="170" height="50" rx="8" fill="#1e232d" stroke="#3a414f"/>
+    <text x="565" y="91" text-anchor="middle" fill="#a3a9b5">Service health</text>
+    <rect x="680" y="60" width="170" height="50" rx="8" fill="#1e232d" stroke="#3a414f"/>
+    <text x="765" y="91" text-anchor="middle" fill="#a3a9b5">System metrics</text>
+    <rect x="880" y="60" width="170" height="50" rx="8" fill="#1e232d" stroke="#3a414f"/>
+    <text x="965" y="91" text-anchor="middle" fill="#a3a9b5">10+ tenants</text>
+  </g>
+
+  <!-- All five sources converge to the top-center of the data-layer wrapper at (600, 180) -->
+  <g stroke="#3a414f" stroke-width="1.4" fill="none" marker-end="url(#arrowMon)">
+    <path d="M165 110 L598 178"/>
+    <path d="M365 110 L599 178"/>
+    <path d="M565 110 L600 178"/>
+    <path d="M765 110 L601 178"/>
+    <path d="M965 110 L602 178"/>
+  </g>
+
+  <!-- ─────── Data-layer wrapper (y = 180–300) ─────── -->
+  <g>
+    <rect x="200" y="180" width="800" height="120" rx="12" fill="#11151e" stroke="#3a414f" stroke-dasharray="4 4"/>
+    <text x="220" y="204" fill="#5d6373" font-size="11" font-style="italic" letter-spacing="0.08em" text-transform="uppercase">DATA LAYER</text>
+
+    <!-- Prometheus -->
+    <rect x="260" y="218" width="280" height="68" rx="8" fill="#1a1611" stroke="#E6522C" stroke-width="1.3"/>
+    <text x="400" y="248" text-anchor="middle" fill="#E6522C" font-size="20" font-weight="600">Prometheus</text>
+    <text x="400" y="268" text-anchor="middle" fill="#7a8090" font-size="12">metrics collection</text>
+
+    <!-- Prom → Grafana arrow -->
+    <g stroke="#5d6373" stroke-width="1.4" fill="none" marker-end="url(#arrowMon)">
+      <path d="M540 252 L660 252"/>
+    </g>
+
+    <!-- Grafana -->
+    <rect x="660" y="218" width="280" height="68" rx="8" fill="#1a1410" stroke="#F46800" stroke-width="1.3"/>
+    <text x="800" y="248" text-anchor="middle" fill="#F46800" font-size="20" font-weight="600">Grafana</text>
+    <text x="800" y="268" text-anchor="middle" fill="#7a8090" font-size="12">visualization</text>
+  </g>
+
+  <!-- Single accent arrow: data-layer → webapp -->
+  <g stroke="#5a6b9a" stroke-width="2.4" fill="none" marker-end="url(#arrowAccent)">
+    <path d="M600 300 L600 358"/>
+  </g>
+
+  <!-- ─────── Custom Monitoring Webapp (y = 360–560) ─────── -->
+  <g>
+    <rect x="220" y="360" width="760" height="200" rx="14" fill="url(#appGrad)" stroke="#5a6b9a" stroke-width="2"/>
+    <rect x="220" y="360" width="760" height="6" fill="#5a6b9a"/>
+    <text x="600" y="410" text-anchor="middle" fill="#e6e8ec" font-size="30" font-weight="700">Custom Monitoring Webapp</text>
+    <text x="600" y="438" text-anchor="middle" fill="#a3a9b5" font-size="14">Multi-tenant dashboards · alert routing · access control · incident history</text>
+
+    <g opacity="0.7">
+      <rect x="260" y="470" width="155" height="64" rx="6" fill="#0e1117" stroke="#3a414f"/>
+      <rect x="270" y="480" width="80" height="6" rx="2" fill="#5a6b9a"/>
+      <rect x="270" y="495" width="120" height="4" rx="2" fill="#3a414f"/>
+      <rect x="270" y="505" width="100" height="4" rx="2" fill="#3a414f"/>
+
+      <rect x="430" y="470" width="155" height="64" rx="6" fill="#0e1117" stroke="#3a414f"/>
+      <rect x="440" y="480" width="80" height="6" rx="2" fill="#E6522C"/>
+      <rect x="440" y="495" width="120" height="4" rx="2" fill="#3a414f"/>
+      <rect x="440" y="505" width="100" height="4" rx="2" fill="#3a414f"/>
+
+      <rect x="600" y="470" width="155" height="64" rx="6" fill="#0e1117" stroke="#3a414f"/>
+      <rect x="610" y="480" width="80" height="6" rx="2" fill="#F46800"/>
+      <rect x="610" y="495" width="120" height="4" rx="2" fill="#3a414f"/>
+      <rect x="610" y="505" width="100" height="4" rx="2" fill="#3a414f"/>
+
+      <rect x="770" y="470" width="200" height="64" rx="6" fill="#0e1117" stroke="#3a414f"/>
+      <rect x="780" y="480" width="60" height="6" rx="2" fill="#5a6b9a"/>
+      <rect x="780" y="495" width="160" height="4" rx="2" fill="#3a414f"/>
+      <rect x="780" y="505" width="140" height="4" rx="2" fill="#3a414f"/>
+    </g>
+
+    <text x="600" y="555" text-anchor="middle" fill="#5d6373" font-size="11" font-style="italic">where most of the work lived</text>
+  </g>
+</svg>
