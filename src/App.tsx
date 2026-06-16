@@ -19,9 +19,9 @@ export default function App() {
       />
       <ProjectGrid
         id="professional"
-        eyebrow="Professional · Client work"
-        heading="Built for clients and previous employers."
-        description="Work I shipped for paying clients, in school, and at my last full-time job. Different rhythm from the personal projects above — fixed scope, real deadlines, a stakeholder who cares which row sorts first."
+        eyebrow="Professional · Client & research work"
+        heading="Built for clients, employers, and research."
+        description="Work I shipped for paying clients, in school, at my last full-time job, and for a friend's master's research. Different rhythm from the personal projects below — fixed scope, real deadlines, a stakeholder who cares which row sorts first."
         projects={projectsByCategory('professional')}
       />
       <ProjectGrid

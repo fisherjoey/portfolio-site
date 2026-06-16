@@ -112,6 +112,21 @@ export const projects: Project[] = [
 
   // ─────────── Professional / Client work ───────────
   {
+    title: 'Arsenic Drug-Target Finder',
+    category: 'professional',
+    description:
+      "Computational-chemistry tool that scans 3-D protein structures to shortlist cancer proteins an arsenic-based drug could latch onto. Built to support a friend's chemistry master's thesis.",
+    longDescription:
+      "Arsenic trioxide is already an approved cancer drug — it works by binding a cluster of three sulfur \"anchor points\" on one specific protein. The open question for new therapies is which other cancer proteins share that same three-anchor geometry, and there's no database of it. So this tool computes it directly: it reads 3-D protein structures (from AlphaFold and the Protein Data Bank), measures the distances between candidate sulfur atoms, and ranks the proteins whose geometry looks most \"arsenic-ready.\" It filters out false positives (anchors already locked into other bonds), flags promising metal-binding sites, and generates ready-to-open 3-D viewer scripts so the chemist can inspect each hit by eye. I built the computational and engineering side; the chemistry direction came from my friend's master's research — my chemistry minor was enough to meet them in the middle. Repo kept private while the research is ongoing.",
+    tech: ['Python', 'Computational Chemistry', 'Structural Bioinformatics', 'AlphaFold / PDB', 'ChimeraX'],
+    images: {
+      light: ['/projects/arsenic-cys-finder/cover.svg'],
+    },
+    demo: true,
+    status: 'Research project',
+    featured: false,
+  },
+  {
     title: 'Enterprise Monitoring Platform',
     category: 'professional',
     description:

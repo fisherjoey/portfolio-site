@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif">
+  <defs>
+    <linearGradient id="asRibbon1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1D3A5F"/><stop offset="1" stop-color="#3E7D74"/></linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#FAF8F4"/>
+
+  <!-- ============ structure viewer card ============ -->
+  <rect x="80" y="110" width="760" height="780" rx="16" fill="#FFFFFF" stroke="#E8E1D5"/>
+  <text x="112" y="160" fill="#1A1A1A" font-size="18" font-weight="700">Structure viewer</text>
+  <text x="112" y="182" fill="#7A7A82" font-size="13">AlphaFold model · cysteine triad highlighted</text>
+  <g>
+    <circle cx="780" cy="150" r="6" fill="#E06C5E"/>
+    <circle cx="800" cy="150" r="6" fill="#E6B23C"/>
+    <circle cx="820" cy="150" r="6" fill="#5FB07A"/>
+  </g>
+  <line x1="112" y1="200" x2="808" y2="200" stroke="#EEE7DB"/>
+
+  <!-- faint protein ribbon backdrop -->
+  <g fill="none" stroke="url(#asRibbon1)" stroke-width="22" stroke-linecap="round" opacity="0.12">
+    <path d="M150 760 C 280 560, 200 420, 380 360 S 620 300, 700 470"/>
+    <path d="M200 840 C 420 800, 520 660, 640 700 S 780 760, 760 840"/>
+    <path d="M520 250 C 600 360, 460 480, 560 560"/>
+  </g>
+
+  <!-- circumcircle through the three sulfurs -->
+  <circle cx="468" cy="548" r="132" fill="none" stroke="#9A9AA2" stroke-width="1.5" stroke-dasharray="6 7"/>
+
+  <!-- S–S triangle (dashed, with distances) -->
+  <g stroke="#C99A2E" stroke-width="2.5" stroke-dasharray="7 6" fill="none">
+    <path d="M372 470 L596 506"/>
+    <path d="M596 506 L452 668"/>
+    <path d="M452 668 L372 470"/>
+  </g>
+  <g fill="#9A7320" font-size="14" font-weight="600">
+    <text x="470" y="468">3.2 Å</text>
+    <text x="548" y="606">3.4 Å</text>
+    <text x="356" y="586">3.3 Å</text>
+  </g>
+
+  <!-- As–S coordination bonds -->
+  <g stroke="#5A4480" stroke-width="5" stroke-linecap="round">
+    <line x1="468" y1="548" x2="372" y2="470"/>
+    <line x1="468" y1="548" x2="596" y2="506"/>
+    <line x1="468" y1="548" x2="452" y2="668"/>
+  </g>
+
+  <!-- sulfur atoms (Cys thiols) -->
+  <g>
+    <circle cx="372" cy="470" r="20" fill="#E6B23C" stroke="#B5841E" stroke-width="2"/>
+    <circle cx="596" cy="506" r="20" fill="#E6B23C" stroke="#B5841E" stroke-width="2"/>
+    <circle cx="452" cy="668" r="20" fill="#E6B23C" stroke="#B5841E" stroke-width="2"/>
+    <text x="372" y="475" text-anchor="middle" fill="#5A3F0A" font-size="13" font-weight="700">S</text>
+    <text x="596" y="511" text-anchor="middle" fill="#5A3F0A" font-size="13" font-weight="700">S</text>
+    <text x="452" y="673" text-anchor="middle" fill="#5A3F0A" font-size="13" font-weight="700">S</text>
+  </g>
+  <g fill="#7A7A82" font-size="12">
+    <text x="340" y="438">Cys₁₄₃</text>
+    <text x="610" y="500">Cys₁₈₈</text>
+    <text x="420" y="704">Cys₂₀₁</text>
+  </g>
+
+  <!-- central As(III) -->
+  <circle cx="468" cy="548" r="26" fill="#7A5BA6" stroke="#5A4480" stroke-width="2"/>
+  <text x="468" y="554" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">As</text>
+
+  <!-- legend -->
+  <g transform="translate(112,800)">
+    <circle cx="12" cy="0" r="11" fill="#E6B23C" stroke="#B5841E" stroke-width="2"/>
+    <text x="32" y="5" fill="#4A4A50" font-size="14">Cysteine sulfur (free thiol)</text>
+    <circle cx="362" cy="0" r="11" fill="#7A5BA6"/>
+    <text x="382" y="5" fill="#4A4A50" font-size="14">As(III) center</text>
+  </g>
+  <text x="112" y="848" fill="#9A9AA2" font-size="13">Three thiols within bonding distance — the geometric precondition for arsenic binding.</text>
+
+  <!-- ============ ranked candidates card ============ -->
+  <rect x="880" y="110" width="640" height="780" rx="16" fill="#FFFFFF" stroke="#E8E1D5"/>
+  <text x="912" y="160" fill="#1A1A1A" font-size="18" font-weight="700">Ranked candidates</text>
+  <text x="912" y="182" fill="#7A7A82" font-size="13">oncoproteins, by arsenic-readiness</text>
+  <line x1="912" y1="200" x2="1488" y2="200" stroke="#EEE7DB"/>
+
+  <!-- column headers -->
+  <g fill="#9A9AA2" font-size="12" font-weight="600" letter-spacing="0.04em">
+    <text x="912" y="236">PROTEIN</text>
+    <text x="1248" y="236" text-anchor="middle">S–S (Å)</text>
+    <text x="1360" y="236" text-anchor="middle">RADIUS</text>
+    <text x="1472" y="236" text-anchor="end">METAL</text>
+  </g>
+
+  <!-- rows -->
+  <!-- row 1: positive control, highlighted -->
+  <rect x="904" y="252" width="592" height="78" rx="10" fill="#F3EEF8"/>
+  <text x="912" y="286" fill="#1A1A1A" font-size="16" font-weight="700">PML</text>
+  <rect x="966" y="272" width="74" height="20" rx="10" fill="#7A5BA6"/>
+  <text x="1003" y="287" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="600">control</text>
+  <text x="912" y="312" fill="#7A7A82" font-size="12">zinc-displacement (Mode B)</text>
+  <text x="1248" y="297" text-anchor="middle" fill="#4A4A50" font-size="15">3.1</text>
+  <text x="1360" y="297" text-anchor="middle" fill="#2E7D5B" font-size="15" font-weight="700">1.9</text>
+  <rect x="1432" y="282" width="40" height="22" rx="11" fill="#E9EEF5"/><text x="1452" y="298" text-anchor="middle" fill="#1D3A5F" font-size="12" font-weight="600">Zn</text>
+
+  <!-- row 2 -->
+  <text x="912" y="372" fill="#1A1A1A" font-size="16" font-weight="600">AF-A24F·1</text>
+  <text x="912" y="396" fill="#7A7A82" font-size="12">free triad · near pocket</text>
+  <text x="1248" y="381" text-anchor="middle" fill="#4A4A50" font-size="15">3.3</text>
+  <text x="1360" y="381" text-anchor="middle" fill="#2E7D5B" font-size="15" font-weight="700">2.1</text>
+  <text x="1472" y="381" text-anchor="end" fill="#A9A39A" font-size="15">—</text>
+  <line x1="912" y1="416" x2="1488" y2="416" stroke="#F4EEE3"/>
+
+  <!-- row 3 -->
+  <text x="912" y="456" fill="#1A1A1A" font-size="16" font-weight="600">AF-C19B·1</text>
+  <text x="912" y="480" fill="#7A7A82" font-size="12">zinc-adjacent triad</text>
+  <text x="1248" y="465" text-anchor="middle" fill="#4A4A50" font-size="15">3.4</text>
+  <text x="1360" y="465" text-anchor="middle" fill="#9A7320" font-size="15" font-weight="700">2.3</text>
+  <rect x="1432" y="450" width="40" height="22" rx="11" fill="#E9EEF5"/><text x="1452" y="466" text-anchor="middle" fill="#1D3A5F" font-size="12" font-weight="600">Zn</text>
+  <line x1="912" y1="496" x2="1488" y2="496" stroke="#F4EEE3"/>
+
+  <!-- row 4 -->
+  <text x="912" y="536" fill="#1A1A1A" font-size="16" font-weight="600">AF-D77E·2</text>
+  <text x="912" y="560" fill="#7A7A82" font-size="12">free triad</text>
+  <text x="1248" y="545" text-anchor="middle" fill="#4A4A50" font-size="15">3.5</text>
+  <text x="1360" y="545" text-anchor="middle" fill="#9A7320" font-size="15" font-weight="700">2.4</text>
+  <text x="1472" y="545" text-anchor="end" fill="#A9A39A" font-size="15">—</text>
+  <line x1="912" y1="576" x2="1488" y2="576" stroke="#F4EEE3"/>
+
+  <!-- row 5 -->
+  <text x="912" y="616" fill="#1A1A1A" font-size="16" font-weight="600">AF-E08K·1</text>
+  <text x="912" y="640" fill="#7A7A82" font-size="12">disulfide flagged · demoted</text>
+  <text x="1248" y="625" text-anchor="middle" fill="#4A4A50" font-size="15">3.6</text>
+  <text x="1360" y="625" text-anchor="middle" fill="#C2703D" font-size="15" font-weight="700">2.6</text>
+  <text x="1472" y="625" text-anchor="end" fill="#A9A39A" font-size="15">—</text>
+  <line x1="912" y1="656" x2="1488" y2="656" stroke="#F4EEE3"/>
+
+  <!-- footnote / formula -->
+  <rect x="912" y="690" width="576" height="160" rx="12" fill="#FBF9F5" stroke="#E8E1D5"/>
+  <text x="936" y="726" fill="#1A1A1A" font-size="14" font-weight="700">Why circumradius?</text>
+  <g fill="#4A4A50" font-size="13.5">
+    <text x="936" y="754">The radius of the smallest circle through the three sulfurs.</text>
+    <text x="936" y="778">Smaller = thiols already sit near one coordination shell =</text>
+    <text x="936" y="802">more "arsenic-ready." Ideal trithiolate ≈ 1.8–2.0 Å.</text>
+  </g>
+  <text x="936" y="832" fill="#9A9AA2" font-size="12">Disulfides &amp; structural-metal sites flagged automatically.</text>
+</svg>
