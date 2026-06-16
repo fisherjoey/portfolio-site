@@ -24,8 +24,7 @@ export default function ServicesCTA() {
               </h2>
               <p className="mt-4 text-base md:text-lg text-[var(--text-secondary)] max-w-2xl leading-relaxed">
                 I take on consulting, custom builds, and ongoing maintenance work through
-                SyncedTech. The site is still being put together, but if you're sizing up a
-                project, head over and get in touch.
+                SyncedTech. If you're sizing up a project, head over and get in touch.
               </p>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {services.map((s) => (
