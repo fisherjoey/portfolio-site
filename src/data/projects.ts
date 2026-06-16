@@ -120,9 +120,9 @@ export const projects: Project[] = [
       "Arsenic trioxide is already an approved cancer drug — it works by binding a cluster of three sulfur \"anchor points\" on one specific protein. The open question for new therapies is which other cancer proteins share that same three-anchor geometry, and there's no database of it. So this tool computes it directly: it reads 3-D protein structures (from AlphaFold and the Protein Data Bank), measures the distances between candidate sulfur atoms, and ranks the proteins whose geometry looks most \"arsenic-ready.\" It filters out false positives (anchors already locked into other bonds), flags promising metal-binding sites, and generates ready-to-open 3-D viewer scripts so the chemist can inspect each hit by eye. I built the computational and engineering side; the chemistry direction came from my friend's master's research — my chemistry minor was enough to meet them in the middle. Repo kept private while the research is ongoing.",
     tech: ['Python', 'Computational Chemistry', 'Structural Bioinformatics', 'AlphaFold / PDB', 'ChimeraX'],
     images: {
-      light: ['/projects/arsenic-cys-finder/cover.svg'],
+      light: ['/projects/arsenic-cys-finder/trithiolate.webp'],
     },
-    demo: true,
+    imageMode: 'contain',
     status: 'Research project',
     featured: false,
   },
