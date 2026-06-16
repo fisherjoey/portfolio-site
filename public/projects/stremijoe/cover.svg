@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif">
+  <defs>
+    <radialGradient id="sjBg" cx="0.5" cy="0.36" r="0.75">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F1EDE6"/>
+    </radialGradient>
+    <clipPath id="sjScreen"><rect x="622" y="108" width="356" height="784" rx="38"/></clipPath>
+    <linearGradient id="p1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#244B73"/><stop offset="1" stop-color="#16263A"/></linearGradient>
+    <linearGradient id="p2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3E7D74"/><stop offset="1" stop-color="#1F4A45"/></linearGradient>
+    <linearGradient id="p3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9C5B3E"/><stop offset="1" stop-color="#5E3322"/></linearGradient>
+    <linearGradient id="p4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6A5183"/><stop offset="1" stop-color="#3A2C4D"/></linearGradient>
+    <linearGradient id="p5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A5A6E"/><stop offset="1" stop-color="#2A3340"/></linearGradient>
+    <linearGradient id="p6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B08431"/><stop offset="1" stop-color="#6E5118"/></linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sjBg)"/>
+  <g fill="#1D3A5F" opacity="0.05">
+    <path d="M250 360 L250 460 L330 410 Z"/>
+    <path d="M1300 600 L1300 700 L1380 650 Z"/>
+  </g>
+
+  <!-- phone frame -->
+  <rect x="600" y="86" width="400" height="828" rx="54" fill="#23262E"/>
+  <rect x="608" y="94" width="384" height="812" rx="48" fill="#15171C"/>
+  <rect x="622" y="108" width="356" height="784" rx="38" fill="#FAF8F4"/>
+
+  <g clip-path="url(#sjScreen)">
+    <rect x="752" y="118" width="96" height="20" rx="10" fill="#15171C"/>
+    <text x="648" y="150" fill="#1A1A1A" font-size="14" font-weight="600">9:41</text>
+    <rect x="930" y="140" width="26" height="13" rx="3" fill="none" stroke="#9A9AA2"/>
+    <rect x="932" y="142" width="17" height="9" rx="2" fill="#1A1A1A"/>
+
+    <!-- header -->
+    <text x="648" y="196" fill="#1A1A1A" font-size="24" font-weight="700">Library</text>
+    <circle cx="902" cy="188" r="9" fill="none" stroke="#4A4A50" stroke-width="2"/>
+    <line x1="908" y1="194" x2="916" y2="202" stroke="#4A4A50" stroke-width="2"/>
+    <path d="M946 180 L946 196 M939 190 L946 198 L953 190 M938 202 L954 202" stroke="#4A4A50" stroke-width="2" fill="none"/>
+
+    <!-- continue watching -->
+    <text x="648" y="240" fill="#7A7A82" font-size="13" font-weight="600">CONTINUE WATCHING</text>
+    <g>
+      <rect x="648" y="256" width="144" height="104" rx="12" fill="url(#p1)"/>
+      <path d="M712 296 L734 308 L712 320 Z" fill="#FFFFFF" opacity="0.92"/>
+      <rect x="648" y="346" width="144" height="14" rx="0" fill="#000000" opacity="0.18"/>
+      <rect x="648" y="350" width="92" height="4" rx="2" fill="#C2703D"/>
+      <!-- downloaded badge -->
+      <circle cx="776" cy="272" r="11" fill="#1D3A5F"/>
+      <path d="M771 272 l4 4 l6 -8" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+    </g>
+    <g>
+      <rect x="808" y="256" width="144" height="104" rx="12" fill="url(#p2)"/>
+      <path d="M872 296 L894 308 L872 320 Z" fill="#FFFFFF" opacity="0.92"/>
+      <rect x="808" y="350" width="50" height="4" rx="2" fill="#C2703D"/>
+    </g>
+
+    <!-- library grid -->
+    <text x="648" y="400" fill="#7A7A82" font-size="13" font-weight="600">YOUR LIBRARY</text>
+    <!-- row 1 -->
+    <rect x="648" y="414" width="144" height="184" rx="12" fill="url(#p3)"/>
+    <path d="M712 496 L734 508 L712 520 Z" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="776" cy="430" r="11" fill="#1D3A5F"/>
+    <path d="M771 430 l4 4 l6 -8" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+
+    <rect x="808" y="414" width="144" height="184" rx="12" fill="url(#p4)"/>
+    <path d="M872 496 L894 508 L872 520 Z" fill="#FFFFFF" opacity="0.9"/>
+
+    <!-- row 2 -->
+    <rect x="648" y="610" width="144" height="184" rx="12" fill="url(#p5)"/>
+    <path d="M712 692 L734 704 L712 716 Z" fill="#FFFFFF" opacity="0.9"/>
+
+    <rect x="808" y="610" width="144" height="184" rx="12" fill="url(#p6)"/>
+    <path d="M872 692 L894 704 L872 716 Z" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="936" cy="626" r="11" fill="#1D3A5F"/>
+    <path d="M931 626 l4 4 l6 -8" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+
+    <!-- bottom tab bar -->
+    <rect x="622" y="812" width="356" height="80" fill="#FFFFFF"/>
+    <line x1="622" y1="812" x2="978" y2="812" stroke="#EEE7DB"/>
+    <!-- home -->
+    <path d="M664 846 L678 834 L692 846 L692 858 L664 858 Z" fill="none" stroke="#9A9AA2" stroke-width="2"/>
+    <text x="678" y="876" text-anchor="middle" fill="#9A9AA2" font-size="10">Home</text>
+    <!-- search -->
+    <circle cx="744" cy="844" r="8" fill="none" stroke="#9A9AA2" stroke-width="2"/>
+    <line x1="750" y1="850" x2="757" y2="857" stroke="#9A9AA2" stroke-width="2"/>
+    <text x="746" y="876" text-anchor="middle" fill="#9A9AA2" font-size="10">Search</text>
+    <!-- library (active) -->
+    <g stroke="#1D3A5F" stroke-width="2.4">
+      <line x1="820" y1="836" x2="820" y2="856"/>
+      <line x1="828" y1="836" x2="828" y2="856"/>
+      <line x1="836" y1="838" x2="840" y2="856"/>
+    </g>
+    <text x="828" y="876" text-anchor="middle" fill="#1D3A5F" font-size="10" font-weight="600">Library</text>
+    <!-- downloads -->
+    <path d="M912 836 L912 850 M906 845 L912 852 L918 845 M905 856 L919 856" stroke="#9A9AA2" stroke-width="2" fill="none"/>
+    <text x="912" y="876" text-anchor="middle" fill="#9A9AA2" font-size="10">Downloads</text>
+
+    <rect x="752" y="876" width="96" height="5" rx="2.5" fill="#C9C2B6"/>
+  </g>
+</svg>

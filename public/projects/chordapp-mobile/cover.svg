@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif">
+  <defs>
+    <radialGradient id="cmBg" cx="0.5" cy="0.36" r="0.75">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F1EDE6"/>
+    </radialGradient>
+    <clipPath id="cmScreen"><rect x="622" y="108" width="356" height="784" rx="38"/></clipPath>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#cmBg)"/>
+  <!-- faint chord watermarks -->
+  <g fill="#1D3A5F" opacity="0.05" font-size="220" font-weight="800">
+    <text x="150" y="420">A</text>
+    <text x="1180" y="820">D</text>
+  </g>
+
+  <!-- phone frame -->
+  <rect x="600" y="86" width="400" height="828" rx="54" fill="#23262E"/>
+  <rect x="608" y="94" width="384" height="812" rx="48" fill="#15171C"/>
+  <rect x="622" y="108" width="356" height="784" rx="38" fill="#FAF8F4"/>
+
+  <g clip-path="url(#cmScreen)">
+    <!-- notch -->
+    <rect x="752" y="118" width="96" height="20" rx="10" fill="#15171C"/>
+    <!-- status bar -->
+    <text x="648" y="150" fill="#1A1A1A" font-size="14" font-weight="600">9:41</text>
+    <rect x="930" y="140" width="26" height="13" rx="3" fill="none" stroke="#9A9AA2"/>
+    <rect x="932" y="142" width="17" height="9" rx="2" fill="#1A1A1A"/>
+
+    <!-- header -->
+    <text x="652" y="206" fill="#1D3A5F" font-size="26" font-weight="700">‹</text>
+    <text x="800" y="194" text-anchor="middle" fill="#1A1A1A" font-size="20" font-weight="700">Wagon Wheel</text>
+    <text x="800" y="218" text-anchor="middle" fill="#7A7A82" font-size="13">Old Crow Medicine Show</text>
+    <path d="M946 188 a7 7 0 0 1 12 4 a7 7 0 0 1 12 -4 a8 8 0 0 1 -12 11 a8 8 0 0 1 -12 -11 z" fill="none" stroke="#C2703D" stroke-width="2"/>
+
+    <!-- key / capo chips -->
+    <rect x="648" y="244" width="76" height="30" rx="15" fill="#E9EEF5"/>
+    <text x="686" y="264" text-anchor="middle" fill="#1D3A5F" font-size="13" font-weight="600">Key A</text>
+    <rect x="734" y="244" width="84" height="30" rx="15" fill="#F4F0E8" stroke="#E2DBCD"/>
+    <text x="776" y="264" text-anchor="middle" fill="#4A4A50" font-size="13">Capo 2</text>
+
+    <!-- chord sheet -->
+    <g font-weight="700" fill="#1D3A5F" font-size="15">
+      <text x="648" y="318">A</text><text x="724" y="318">E</text><text x="800" y="318">F#m</text><text x="884" y="318">D</text>
+      <text x="648" y="388">A</text><text x="730" y="388">E</text><text x="812" y="388">D</text>
+      <text x="648" y="458">A</text><text x="724" y="458">E</text><text x="800" y="458">F#m</text><text x="884" y="458">D</text>
+      <text x="648" y="528">A</text><text x="730" y="528">E</text><text x="812" y="528">D</text>
+      <text x="648" y="598">G</text><text x="744" y="598">D</text><text x="836" y="598">A</text>
+    </g>
+    <g fill="#33333A" font-size="16">
+      <text x="648" y="342">So rock me mama like a wagon wheel</text>
+      <text x="648" y="412">Rock me mama any way you feel</text>
+      <text x="648" y="482">Hey, mama rock me</text>
+      <text x="648" y="552">Rock me mama like the wind and the rain</text>
+      <text x="648" y="622">Rock me mama like a south-bound train</text>
+    </g>
+
+    <!-- auto-scroll progress -->
+    <rect x="648" y="662" width="304" height="4" rx="2" fill="#ECE5D9"/>
+    <rect x="648" y="662" width="150" height="4" rx="2" fill="#1D3A5F"/>
+    <circle cx="798" cy="664" r="6" fill="#1D3A5F"/>
+    <text x="648" y="694" fill="#7A7A82" font-size="12">Auto-scroll · 0.8×</text>
+
+    <!-- control bar -->
+    <rect x="638" y="800" width="324" height="60" rx="18" fill="#FFFFFF" stroke="#E8E1D5"/>
+    <circle cx="676" cy="830" r="16" fill="#F4F0E8"/>
+    <text x="676" y="836" text-anchor="middle" fill="#1A1A1A" font-size="20" font-weight="700">−</text>
+    <text x="716" y="835" fill="#4A4A50" font-size="13" font-weight="600">A♯</text>
+    <circle cx="760" cy="830" r="16" fill="#F4F0E8"/>
+    <text x="760" y="836" text-anchor="middle" fill="#1A1A1A" font-size="20" font-weight="700">+</text>
+    <circle cx="812" cy="830" r="22" fill="#1D3A5F"/>
+    <path d="M806 820 L826 830 L806 840 Z" fill="#FFFFFF"/>
+    <!-- metronome -->
+    <path d="M876 842 L884 814 L892 842 Z" fill="none" stroke="#6B6B73" stroke-width="2"/>
+    <line x1="884" y1="836" x2="894" y2="822" stroke="#6B6B73" stroke-width="2"/>
+    <!-- setlist -->
+    <g stroke="#6B6B73" stroke-width="2">
+      <line x1="922" y1="822" x2="940" y2="822"/>
+      <line x1="922" y1="830" x2="940" y2="830"/>
+      <line x1="922" y1="838" x2="940" y2="838"/>
+    </g>
+
+    <!-- home indicator -->
+    <rect x="752" y="876" width="96" height="5" rx="2.5" fill="#C9C2B6"/>
+  </g>
+</svg>

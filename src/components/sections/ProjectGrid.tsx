@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Info } from 'lucide-react'
 import { GithubIcon } from '../ui/BrandIcons'
 import type { Project } from '../../data/projects'
 import Container from '../ui/Container'
@@ -93,6 +93,12 @@ function ProjectCard({
           <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--color-brand-accent)] text-[var(--text-on-accent)] text-xs font-mono shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-white" />
             Featured
+          </span>
+        ) : null}
+        {project.demo ? (
+          <span className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[var(--surface-raised)]/90 text-[var(--text-secondary)] text-xs font-mono border border-[var(--surface-border-strong)] backdrop-blur-sm">
+            <Info className="w-3 h-3" />
+            Illustrative
           </span>
         ) : null}
       </button>

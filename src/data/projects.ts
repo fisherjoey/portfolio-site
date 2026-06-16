@@ -29,6 +29,12 @@ export interface Project {
    * 'contain' letterboxes — for logos / non-screenshot artwork.
    */
   imageMode?: 'cover' | 'contain'
+  /**
+   * True when the cover art is a recreated/illustrative mockup rather than a
+   * real screenshot — used to surface an "Illustrative" badge and a privacy
+   * note (e.g. for apps holding client data that can't be shown).
+   */
+  demo?: boolean
 }
 
 export const projects: Project[] = [
@@ -97,6 +103,10 @@ export const projects: Project[] = [
     longDescription:
       "Next.js analytics dashboard built for a client. Pulls traffic from Google Analytics, leads and bookings from Supabase, and runs the lot through Claude once a week for a plain-English summary. Exists because non-technical operators shouldn't have to spelunk GA reports to know whether the month was good.",
     tech: ['Next.js', 'Supabase', 'Google Analytics', 'Claude API', 'TypeScript'],
+    images: {
+      light: ['/projects/analytics/cover.svg'],
+    },
+    demo: true,
     featured: false,
   },
 
@@ -177,6 +187,10 @@ export const projects: Project[] = [
     longDescription:
       "Same app, on a phone. Shares the Supabase backend with the web version so the library stays in sync. Built for using on stage: bigger text, hands-free auto-scroll, setlists cached offline because venue WiFi is a coin flip.",
     tech: ['React Native', 'Expo', 'TypeScript', 'Supabase'],
+    images: {
+      light: ['/projects/chordapp-mobile/cover.svg'],
+    },
+    demo: true,
     featured: false,
   },
   {
@@ -187,6 +201,10 @@ export const projects: Project[] = [
     longDescription:
       "The internal portal I run SyncedTech on. Tracks clients and projects (CRM), captures hours against them (timesheets), and turns those hours into invoices and payment reminders without me re-keying data between three different apps. Closing the loop from work-done to money-in is the part worth automating.",
     tech: ['Next.js', 'TypeScript', 'Supabase'],
+    images: {
+      light: ['/projects/syncedtech-portal/cover.svg'],
+    },
+    demo: true,
     featured: false,
   },
   {
@@ -211,6 +229,10 @@ export const projects: Project[] = [
     longDescription:
       "Mirrors Stremio's plugin-and-source architecture, but as a React Native mobile app instead of a desktop client. Same model: pluggable content sources feeding a unified library and a single playback layer. The reason this exists separate from Stremio is offline downloads. I can stash episodes on my phone before a flight and watch them on the plane. Runs on Expo, expo-router for navigation, native media playback under the hood.",
     tech: ['React Native', 'Expo', 'TypeScript', 'expo-router', 'Media Playback'],
+    images: {
+      light: ['/projects/stremijoe/cover.svg'],
+    },
+    demo: true,
     featured: false,
   },
   {
@@ -224,6 +246,10 @@ export const projects: Project[] = [
     github: 'https://github.com/fisherjoey/react-annotator-chrome',
     githubSecondary: 'https://github.com/fisherjoey/react-annotator-firefox',
     githubSecondaryLabel: 'Firefox',
+    images: {
+      light: ['/projects/react-annotator/cover.svg'],
+    },
+    demo: true,
     featured: false,
   },
   {

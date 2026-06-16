@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react'
-import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, ExternalLink, Info } from 'lucide-react'
 import { GithubIcon } from './BrandIcons'
 import type { Project } from '../../data/projects'
 
@@ -92,6 +92,18 @@ export default function ProjectLightbox({ project, onClose }: ProjectLightboxPro
         )}
 
         <div className="p-6 md:p-8 overflow-y-auto">
+          {project.demo && (
+            <div className="flex items-start gap-2 mb-5 px-3 py-2.5 rounded-md bg-[var(--surface-overlay)] border border-[var(--surface-border)]">
+              <Info className="w-4 h-4 mt-0.5 shrink-0 text-[var(--color-brand-accent)]" />
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                Recreated UI — a clean-room mockup of the interface. Real{' '}
+                {project.category === 'production' || project.category === 'professional'
+                  ? 'client data'
+                  : 'account data'}{' '}
+                is hidden for privacy.
+              </p>
+            </div>
+          )}
           <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
             <div>
               <p className="label mb-2 text-[var(--color-brand-accent)]">{project.category}</p>
