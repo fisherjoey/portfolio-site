@@ -11,16 +11,18 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-16 items-center">
           <div>
             <p className="label text-[var(--color-brand-accent)] mb-5">
-              Software developer · Calgary, AB
+              Software developer & IT consultant · Calgary, AB
             </p>
             <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-[var(--text-primary)] max-w-3xl leading-[1.04]">
-              I keep building the features{' '}
-              <span className="text-[var(--color-brand-accent)] italic">other apps leave out</span>.
+              Hi, I'm Joey! I{' '}
+              <span className="text-[var(--color-brand-accent)] italic">design, build, and run</span>{' '}
+              software.
             </h1>
             <p className="mt-6 text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl leading-relaxed">
-              Full-stack TypeScript and React. Heads-down on SyncedSport right now (AI scheduling
-              for sports officials), with a few client sites running on the side and a folder of
-              personal apps that keeps growing.
+              For work and in my free time. Full-stack TypeScript and React, currently heads-down
+              on SyncedSport, with a folder of personal apps that keeps growing. I also take on IT
+              and consulting through SyncedTech: client builds, internal tools, and cloud setup for
+              small businesses.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
