@@ -117,7 +117,7 @@ export const projects: Project[] = [
     description:
       "Computational-chemistry tool that scans 3-D protein structures to shortlist cancer proteins an arsenic-based drug could latch onto. Built to support a friend's chemistry master's thesis.",
     longDescription:
-      "Arsenic trioxide is already an approved cancer drug — it works by binding a cluster of three sulfur \"anchor points\" on one specific protein. The open question for new therapies is which other cancer proteins share that same three-anchor geometry, and there's no database of it. So this tool computes it directly: it reads 3-D protein structures (from AlphaFold and the Protein Data Bank), measures the distances between candidate sulfur atoms, and ranks the proteins whose geometry looks most \"arsenic-ready.\" It filters out false positives (anchors already locked into other bonds), flags promising metal-binding sites, and generates ready-to-open 3-D viewer scripts so the chemist can inspect each hit by eye. I built the computational and engineering side; the chemistry direction came from my friend's master's research — my chemistry minor was enough to meet them in the middle. Repo kept private while the research is ongoing.",
+      "Arsenic trioxide is already an approved cancer drug. It works by binding a cluster of three sulfur \"anchor points\" on one specific protein. The open question for new therapies is which other cancer proteins share that same three-anchor geometry, and there's no database of it. So this tool computes it directly: it reads 3-D protein structures (from AlphaFold and the Protein Data Bank), measures the distances between candidate sulfur atoms, and ranks the proteins whose geometry looks most \"arsenic-ready.\" It filters out false positives (anchors already locked into other bonds), flags promising metal-binding sites, and writes ready-to-open 3-D viewer scripts so the chemist can check each hit by eye. I built the computational and engineering side; the chemistry direction came from my friend's master's research, and my chemistry minor was just enough to meet them in the middle. The repo stays private while the research is ongoing.",
     tech: ['Python', 'Computational Chemistry', 'Structural Bioinformatics', 'AlphaFold / PDB', 'ChimeraX'],
     images: {
       light: ['/projects/arsenic-cys-finder/trithiolate.webp'],
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     description:
       "A custom monitoring platform I architected at a previous full-time role. Prometheus and Grafana sit underneath as the data layer; most of the work was the webapp on top.",
     longDescription:
-      "Architected during a previous full-time role. Prometheus and Grafana handle the data layer — metrics collection and visualization. The work I'm proud of is the custom webapp built on top: multi-tenant dashboards so each customer organization gets their own view, alert routing wired into on-call rotations so issues page the right engineer instead of everyone, role-based access control, and incident history. Custom Node-based exporters fill in the gaps the standard ones missed (SSL expiry, internal service health, stack-specific metrics). Rolled out to 10+ customer organizations and caught outages they would've otherwise discovered the hard way.",
+      "Architected during a previous full-time role. Prometheus and Grafana handle the data layer: metrics collection and visualization. The work I'm proud of is the custom webapp built on top: multi-tenant dashboards so each customer organization gets their own view, alert routing wired into on-call rotations so issues page the right engineer instead of everyone, role-based access control, and incident history. Custom Node-based exporters fill in the gaps the standard ones missed (SSL expiry, internal service health, stack-specific metrics). Rolled out to 10+ customer organizations and caught outages they would've otherwise discovered the hard way.",
     tech: ['Node.js', 'Prometheus', 'Grafana', 'Multi-tenant', 'Docker'],
     images: {
       dark: ['/projects/monitoring/stack.svg'],
@@ -271,7 +271,7 @@ export const projects: Project[] = [
     title: 'TT Save Editor',
     category: 'personal',
     description:
-      "Browser save editor for LEGO Batman: Legacy of the Dark Knight. Fixes the \"created on an updated version\" error and unlocks collectibles, characters, and missions — 100% client-side, nothing uploaded.",
+      "Browser save editor for LEGO Batman: Legacy of the Dark Knight. Fixes the \"created on an updated version\" error and unlocks collectibles, characters, and missions. It runs entirely in the browser, so nothing gets uploaded.",
     longDescription:
       "A fully client-side save editor for LEGO Batman: Legacy of the Dark Knight. Parses the binary save format in the browser so nothing ever leaves your machine, fixes the common \"created on an updated version\" load error, and lets you unlock collectibles and characters or edit progress directly. The interesting part is reverse-engineering the save layout and doing the byte-level edits safely in TypeScript.",
     tech: ['TypeScript', 'React', 'Vite', 'Client-side', 'Binary parsing'],

@@ -96,7 +96,7 @@ export default function ProjectLightbox({ project, onClose }: ProjectLightboxPro
             <div className="flex items-start gap-2 mb-5 px-3 py-2.5 rounded-md bg-[var(--surface-overlay)] border border-[var(--surface-border)]">
               <Info className="w-4 h-4 mt-0.5 shrink-0 text-[var(--color-brand-accent)]" />
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Recreated UI — an illustrative mockup of the interface, not a
+                Recreated UI: an illustrative mockup of the interface, not a
                 screenshot of live data.
               </p>
             </div>
