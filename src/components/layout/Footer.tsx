@@ -2,7 +2,7 @@ import { Mail } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from '../ui/BrandIcons'
 
 const GITHUB_URL = 'https://github.com/fisherjoey'
-const EMAIL = 'joey.fisherucalgary@gmail.com'
+const EMAIL = 'joey@joeyfishertech.com'
 const LINKEDIN_URL = 'https://www.linkedin.com/in/fisherjoey/'
 
 export default function Footer() {

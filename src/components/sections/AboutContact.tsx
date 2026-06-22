@@ -33,7 +33,7 @@ export default function AboutContact() {
             </div>
 
             <div id="contact" className="mt-8 flex flex-wrap items-center gap-3">
-              <Button href="mailto:joey.fisherucalgary@gmail.com" variant="accent">
+              <Button href="mailto:joey@joeyfishertech.com" variant="accent">
                 <Mail className="w-4 h-4" />
                 Email me
               </Button>

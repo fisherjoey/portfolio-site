@@ -12,7 +12,7 @@ const NAV_LINKS = [
 ]
 
 const GITHUB_URL = 'https://github.com/fisherjoey'
-const EMAIL = 'joey.fisherucalgary@gmail.com'
+const EMAIL = 'joey@joeyfishertech.com'
 const SYNCEDTECH_URL = 'https://syncedtech.ca'
 
 export default function Header() {

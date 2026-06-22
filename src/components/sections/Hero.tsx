@@ -34,7 +34,7 @@ export default function Hero() {
                 <GithubIcon className="w-4 h-4" />
                 GitHub
               </Button>
-              <Button href="mailto:joey.fisherucalgary@gmail.com" variant="ghost">
+              <Button href="mailto:joey@joeyfishertech.com" variant="ghost">
                 <Mail className="w-4 h-4" />
                 Get in touch
               </Button>
