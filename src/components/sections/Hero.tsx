@@ -1,7 +1,7 @@
 import Container from '../ui/Container'
 import Button from '../ui/Button'
 import Portrait from '../ui/Portrait'
-import { Mail, ArrowDown } from 'lucide-react'
+import { Mail, ArrowDown, FileText } from 'lucide-react'
 import { GithubIcon } from '../ui/BrandIcons'
 
 export default function Hero() {
@@ -29,6 +29,10 @@ export default function Hero() {
               <Button href="#production" variant="accent">
                 See the work
                 <ArrowDown className="w-4 h-4" />
+              </Button>
+              <Button href="/Joey_Fisher_Resume.pdf" external variant="outline">
+                <FileText className="w-4 h-4" />
+                Résumé
               </Button>
               <Button href="https://github.com/fisherjoey" external variant="outline">
                 <GithubIcon className="w-4 h-4" />

@@ -1,7 +1,7 @@
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import Button from '../ui/Button'
-import { Mail } from 'lucide-react'
+import { Mail, FileText } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from '../ui/BrandIcons'
 
 export default function AboutContact() {
@@ -36,6 +36,10 @@ export default function AboutContact() {
               <Button href="mailto:joey@joeyfishertech.com" variant="accent">
                 <Mail className="w-4 h-4" />
                 Email me
+              </Button>
+              <Button href="/Joey_Fisher_Resume.pdf" external variant="outline">
+                <FileText className="w-4 h-4" />
+                Résumé
               </Button>
               <Button href="https://github.com/fisherjoey" external variant="outline">
                 <GithubIcon className="w-4 h-4" />
