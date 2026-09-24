@@ -162,7 +162,6 @@ export const projects: Project[] = [
     images: {
       dark: ['/projects/monitoring/stack.svg'],
     },
-    imageMode: 'contain',
     featured: false,
   },
   {
@@ -195,7 +194,6 @@ export const projects: Project[] = [
     images: {
       dark: ['/projects/syncedbase/process.svg'],
     },
-    imageMode: 'contain',
     featured: false,
   },
 
