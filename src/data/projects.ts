@@ -130,6 +130,34 @@ export const projects: Project[] = [
 
   // ─────────── Professional / Client work ───────────
   {
+    title: 'Autonomous Agent Dev Pipeline',
+    category: 'professional',
+    description:
+      "Coding agents take Linear tickets on SyncedSport and ship them through automated code review, CI and merge. High-risk changes wait for me.",
+    longDescription:
+      "On SyncedSport, coding agents take Linear tickets and turn them into merged pull requests: 1,375 merged PRs carry the agent label, out of 2,387 merged in the repo. A small FastAPI service receives Linear webhooks, checks their HMAC signatures and keeps a local SQLite cache, so dispatch doesn't hit Linear's rate limits. Tickets run in waves. Each agent works in its own git worktree and has to pass tsc, lint and tests locally, then automated code review runs with a rework loop on major findings, then CI and merge. Most of my effort went into the gate. Diffs that touch authz, tenancy, migrations, auth or billing are held for me even when CI is green, a global hook blocks --no-verify and risky merges, each wave stops at 12 merges, and \"no change needed\" counts as a finished ticket. An escape ledger tracks defects per merged PR: 2 confirmed across 253 recorded merges so far.",
+    tech: ['Claude Code', 'GitHub Actions', 'Linear API', 'FastAPI', 'Python'],
+    ai: "Claude agents implement and rework tickets; automated LLM code review before every merge",
+    images: {
+      light: ['/projects/agent-pipeline/architecture.svg'],
+    },
+    featured: true,
+  },
+  {
+    title: 'Coding-Agent Benchmark Tasks',
+    category: 'professional',
+    description:
+      "Difficulty-calibrated tasks for evaluating coding agents: a real missing feature, hidden tests, a reference solution, and simulated agent runs in an offline Docker sandbox before any paid grading.",
+    longDescription:
+      "I build tasks for evaluating coding agents. Each one takes a feature that's genuinely missing from a real open-source library, adds hidden tests and a reference solution, and is tuned so a target share of agent attempts pass. Every task ships as a Docker image that runs offline under --network none. I wrote a local replica of the grader's four-pass verification and an 11-stage preflight that has to pass before anything is submitted. Before paying for real runs, I simulate them with cold Claude solvers that see only the repo and the task text, and a grader marks each failure fair or unfair against the description. I've screened 118 repositories and built six tasks. The most useful findings were negative: 15 of 16 difficulty probes did nothing, adding requirements didn't lower pass rates, and my own reference solution was wrong three times where the solvers were right. The local panel also read about 42 points higher than the real pass rate, which I now track.",
+    tech: ['Python', 'Go', 'Docker', 'Claude Code', 'SQLite'],
+    ai: "Cold LLM solvers simulate graded agent runs; an LLM grader marks each failure fair or unfair",
+    images: {
+      light: ['/projects/agent-benchmarks/architecture.svg'],
+    },
+    featured: true,
+  },
+  {
     title: 'Arsenic Drug-Target Finder',
     category: 'professional',
     description:
@@ -155,6 +183,40 @@ export const projects: Project[] = [
     tech: ['Node.js', 'Prometheus', 'Grafana', 'Multi-tenant', 'Docker'],
     images: {
       dark: ['/projects/monitoring/stack.svg', '/projects/monitoring/architecture.svg'],
+    },
+    featured: false,
+  },
+  {
+    title: 'Prospector',
+    category: 'professional',
+    description:
+      "A CLI that finds local businesses, writes each one a concept website from facts on its own site, deploys it, and sends a CASL-compliant email offering to make it real.",
+    longDescription:
+      "Prospector is a Node CLI I built for finding web design clients. It pulls local businesses from Google Places, filtered by rating and review count, and scrapes each one's existing site for copy, photos, brand colour and a published contact email. An LLM then writes the page copy from a JSON block of known facts, with rules against inventing founding years, prices, certifications or service areas. The model still pads when the source is thin, so three checks run after generation: a regex pass, a semantic pass that compares the copy to the source, and a repair loop that feeds unsupported quotes back as a blocklist for up to three rounds. It stripped 52 claims across 14 of 33 deployed pages. Pages render as static HTML in one of five trade-based styles with the accent colour checked for WCAG AA contrast, Playwright checks each page on phone and desktop, and everything deploys to one Vercel project as noindex mockups. Email follows CASL: published addresses only, one-click unsubscribe, 25 a day, and a dry run unless I pass --send.",
+    tech: ['Node.js', 'Google Places API', 'Playwright', 'Vercel', 'Claude'],
+    ai: "LLM writes site copy from scraped facts; a second LLM pass finds and strips unsupported claims",
+    images: {
+      light: ['/projects/prospector/architecture.svg'],
+    },
+    featured: false,
+  },
+  {
+    title: 'SyncedTech Website',
+    category: 'professional',
+    description:
+      "The site for my consultancy, SyncedTech. Every page is prerendered to static HTML, so it loads fast and ranks well, and a single serverless function handles new-project enquiries.",
+    longDescription:
+      "SyncedTech's own marketing site, covering websites, custom web apps, SEO and managed IT for small businesses in Calgary. It's React 19 and Vite, prerendered page by page with vite-react-ssg, so visitors and search engines get plain HTML with a sitemap generated at build time. The only code that runs on a server is the contact form: a Vercel function with a spam honeypot that emails each lead through Resend and posts an alert to Discord so I see it right away. The work page walks through the Okotoks Tinting rebuild, which scored 100 on Lighthouse across all four categories.",
+    tech: ['React 19', 'Vite', 'TypeScript', 'Vercel Functions', 'Resend'],
+    live: 'https://syncedtech.ca',
+    images: {
+      light: [
+        '/projects/syncedtech-site/01-home.webp',
+        '/projects/syncedtech-site/architecture.svg',
+        '/projects/syncedtech-site/02-services.webp',
+        '/projects/syncedtech-site/03-websites.webp',
+        '/projects/syncedtech-site/04-work.webp',
+      ],
     },
     featured: false,
   },
@@ -192,6 +254,20 @@ export const projects: Project[] = [
         '/projects/syncedsport/04-payouts.webp',
         '/projects/syncedsport/05-referee-earnings.webp',
       ],
+    },
+    featured: true,
+  },
+  {
+    title: 'Life OS',
+    category: 'personal',
+    description:
+      "A self-hosted assistant I talk to in Discord. The model can only act through typed tools, and anything that sends mail or spends money waits for my typed approval.",
+    longDescription:
+      "I built Life OS as my own assistant platform on a home server, and I talk to it in Discord. The Claude Code session behind the bot has no shell or file tools. It can only call an MCP tool server I wrote, where each of the 130+ tools is tagged read, write, external or money. Sending an email, logging billable hours or placing an order takes two steps: the tool posts a summary and a one-time code to a private channel, a separate listener with no model records my reply, and a fail-closed hook checks that the approval is confirmed, unexpired, unused and matches a hash of the exact arguments. Each trust boundary runs as its own OS user, and the policy files the model runs under are root-owned, so it can't widen its own permissions. A job runner that starts fresh claude -p workers with per-job tool lists, turn and budget caps and a risk ceiling is built and deployed, and scheduled jobs are being moved onto it from cron. The repo stays private because it holds my personal data.",
+    tech: ['TypeScript', 'Claude Code', 'MCP', 'SQLite', 'systemd'],
+    ai: "Claude Code session in Discord plus scheduled claude -p workers, acting only through MCP tools",
+    images: {
+      light: ['/projects/life-os/architecture.svg'],
     },
     featured: true,
   },
@@ -261,20 +337,6 @@ export const projects: Project[] = [
     images: {
       light: ['/projects/f1/how-it-works.svg', '/projects/f1/architecture.svg'],
     },
-    featured: false,
-  },
-  {
-    title: 'StremiJoe',
-    category: 'personal',
-    description:
-      "React Native app plus a small self-hosted server for watching my shows, with offline downloads for when there's no WiFi.",
-    longDescription:
-      "A mobile app for my own shows, built so I can stash episodes on my phone before a flight. The app talks to one server I host (Node, Express and SQLite on my home server), which finds sources through Stremio's Torrentio and Cinemeta addons and resolves them to direct links on Real-Debrid. The phone then downloads straight from Real-Debrid and plays the file with expo-av. Subtitles come from the OpenSubtitles addon.",
-    tech: ['React Native', 'Expo', 'TypeScript', 'Node.js', 'SQLite'],
-    images: {
-      light: ['/projects/stremijoe/cover.svg', '/projects/stremijoe/architecture.svg'],
-    },
-    demo: true,
     featured: false,
   },
   {

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="life-os-arch-title life-os-arch-desc">
+<title id="life-os-arch-title">Life OS architecture</title>
+<desc id="life-os-arch-desc">Discord messages reach a Claude Code session that can only act through a typed MCP tool server; risky actions wait for a typed approval, and scheduled claude -p workers run with per-job limits.</desc>
+<defs><marker id="life-os-arch-arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#6B6B73"/></marker></defs>
+<text x="40" y="78" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-size="40">Discord in, gated tools out</text>
+<line x1="386" y1="402" x2="424" y2="402" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#life-os-arch-arr)"/>
+<line x1="776" y1="402" x2="814" y2="402" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#life-os-arch-arr)"/>
+<rect x="40" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="56" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">FRONT DOOR</text>
+<rect x="52" y="263" width="316" height="101" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="68" y="306" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Discord</text>
+<text x="68" y="339" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Owner-only access</text>
+<rect x="52" y="380" width="316" height="160" rx="8" fill="#E4E9F0" stroke="#1D3A5F" stroke-width="2.5"/>
+<rect x="310" y="392" width="44" height="26" rx="4" fill="#1D3A5F"/>
+<text x="332" y="411" fill="#FFFFFF" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1">AI</text>
+<text x="68" y="423" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Front-door</text>
+<text x="68" y="457" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">session</text>
+<text x="68" y="490" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Claude Code</text>
+<text x="68" y="515" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">No shell or files</text>
+<rect x="430" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="446" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">TOOLS + POLICY</text>
+<rect x="442" y="238" width="316" height="160" rx="8" fill="#FFFFFF" stroke="#1D3A5F" stroke-width="2.5"/>
+<text x="458" y="281" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">MCP tool</text>
+<text x="458" y="315" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">server</text>
+<text x="458" y="348" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">130+ typed tools</text>
+<text x="458" y="373" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Tagged by risk</text>
+<rect x="442" y="414" width="316" height="151" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="458" y="457" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Confirm gate</text>
+<text x="458" y="490" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Typed approval code</text>
+<text x="458" y="515" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Args-hash match</text>
+<text x="458" y="540" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Fails closed</text>
+<rect x="820" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="836" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">SCHEDULED WORK</text>
+<rect x="832" y="192" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="235" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Job runner</text>
+<text x="848" y="268" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">systemd timer</text>
+<text x="848" y="293" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Daily cost budget</text>
+<rect x="832" y="334" width="316" height="160" rx="8" fill="#E4E9F0" stroke="#1D3A5F" stroke-width="2.5"/>
+<rect x="1090" y="346" width="44" height="26" rx="4" fill="#1D3A5F"/>
+<text x="1112" y="365" fill="#FFFFFF" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1">AI</text>
+<text x="848" y="377" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">claude -p</text>
+<text x="848" y="411" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">workers</text>
+<text x="848" y="444" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Per-job tool list</text>
+<text x="848" y="469" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Turn + $ caps</text>
+<rect x="832" y="510" width="316" height="101" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="553" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">SQLite</text>
+<text x="848" y="586" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Jobs, runs, usage</text>
+<text x="40" y="700" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-style="italic" font-size="27">One OS user per boundary; policy files the model can't edit</text>
+</svg>

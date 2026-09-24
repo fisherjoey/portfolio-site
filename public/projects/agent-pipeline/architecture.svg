@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="agent-pipeline-arch-title agent-pipeline-arch-desc">
+<title id="agent-pipeline-arch-title">Autonomous agent dev pipeline architecture</title>
+<desc id="agent-pipeline-arch-desc">Linear tickets reach coding agents through a webhook cache; agents implement in isolated worktrees, pass automated code review, then a risk gate, CI and merge, with defects tracked in an escape ledger.</desc>
+<defs><marker id="agent-pipeline-arch-arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#6B6B73"/></marker></defs>
+<text x="40" y="78" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-size="40">Ticket to merge, behind a risk gate</text>
+<line x1="386" y1="402" x2="424" y2="402" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#agent-pipeline-arch-arr)"/>
+<line x1="776" y1="402" x2="814" y2="402" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#agent-pipeline-arch-arr)"/>
+<rect x="40" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="56" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">INTAKE</text>
+<rect x="52" y="246" width="316" height="135" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="68" y="289" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Linear</text>
+<text x="68" y="323" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">tickets</text>
+<text x="68" y="356" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Todo = queued</text>
+<rect x="52" y="397" width="316" height="160" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="68" y="440" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Webhook</text>
+<text x="68" y="474" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">receiver</text>
+<text x="68" y="507" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">FastAPI, HMAC</text>
+<text x="68" y="532" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">SQLite cache</text>
+<rect x="430" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="446" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">AGENTS</text>
+<rect x="442" y="234" width="316" height="160" rx="8" fill="#E4E9F0" stroke="#1D3A5F" stroke-width="2.5"/>
+<rect x="700" y="246" width="44" height="26" rx="4" fill="#1D3A5F"/>
+<text x="722" y="265" fill="#FFFFFF" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1">AI</text>
+<text x="458" y="277" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Implement</text>
+<text x="458" y="311" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">agents</text>
+<text x="458" y="344" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Own git worktree</text>
+<text x="458" y="369" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">tsc, lint, tests</text>
+<rect x="442" y="410" width="316" height="160" rx="8" fill="#E4E9F0" stroke="#1D3A5F" stroke-width="2.5"/>
+<rect x="700" y="422" width="44" height="26" rx="4" fill="#1D3A5F"/>
+<text x="722" y="441" fill="#FFFFFF" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1">AI</text>
+<text x="458" y="453" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Automated</text>
+<text x="458" y="487" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">code review</text>
+<text x="458" y="520" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Rework on majors</text>
+<text x="458" y="545" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Max 3 rounds</text>
+<rect x="820" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="836" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">GATE + SHIP</text>
+<rect x="832" y="192" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="235" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Risk gate</text>
+<text x="848" y="268" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Holds auth, tenancy,</text>
+<text x="848" y="293" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">migrations, billing</text>
+<rect x="832" y="334" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="377" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">CI + merge</text>
+<text x="848" y="410" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">GitHub Actions</text>
+<text x="848" y="435" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">12 merges per wave</text>
+<rect x="832" y="476" width="316" height="135" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="519" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Escape</text>
+<text x="848" y="553" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">ledger</text>
+<text x="848" y="586" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Defects per PR</text>
+<text x="40" y="700" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-style="italic" font-size="27">1,375 agent PRs merged; 2 confirmed escapes in 253 tracked</text>
+</svg>

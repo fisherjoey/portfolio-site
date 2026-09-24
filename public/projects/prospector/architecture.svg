@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="prospector-arch-title prospector-arch-desc">
+<title id="prospector-arch-title">Prospector architecture</title>
+<desc id="prospector-arch-desc">Businesses from Google Places are scraped for facts, an LLM writes site copy from those facts only, claim checks strip anything unsupported, and the static mockup deploys to Vercel before a CASL-compliant email goes out.</desc>
+<defs><marker id="prospector-arch-arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#6B6B73"/></marker></defs>
+<text x="40" y="78" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-size="40">From map listing to mockup to inbox</text>
+<line x1="386" y1="402" x2="424" y2="402" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#prospector-arch-arr)"/>
+<line x1="776" y1="402" x2="814" y2="402" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#prospector-arch-arr)"/>
+<rect x="40" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="56" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">GATHER</text>
+<rect x="52" y="268" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="68" y="311" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Google Places</text>
+<text x="68" y="344" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Rating filter</text>
+<text x="68" y="369" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">30 trade categories</text>
+<rect x="52" y="410" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="68" y="453" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Site scraper</text>
+<text x="68" y="486" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Copy, photos</text>
+<text x="68" y="511" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Published email</text>
+<rect x="430" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="446" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">WRITE + CHECK</text>
+<rect x="442" y="268" width="316" height="126" rx="8" fill="#E4E9F0" stroke="#1D3A5F" stroke-width="2.5"/>
+<rect x="700" y="280" width="44" height="26" rx="4" fill="#1D3A5F"/>
+<text x="722" y="299" fill="#FFFFFF" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1">AI</text>
+<text x="458" y="311" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">LLM copy</text>
+<text x="458" y="344" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Facts-only prompt</text>
+<text x="458" y="369" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Claude or DeepSeek</text>
+<rect x="442" y="410" width="316" height="126" rx="8" fill="#E4E9F0" stroke="#1D3A5F" stroke-width="2.5"/>
+<rect x="700" y="422" width="44" height="26" rx="4" fill="#1D3A5F"/>
+<text x="722" y="441" fill="#FFFFFF" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1">AI</text>
+<text x="458" y="453" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Claim checks</text>
+<text x="458" y="486" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Regex + semantic</text>
+<text x="458" y="511" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Repair, 3 rounds</text>
+<rect x="820" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="836" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">SHIP</text>
+<rect x="832" y="209" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="252" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Static build</text>
+<text x="848" y="285" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">5 trade styles</text>
+<text x="848" y="310" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">WCAG AA colours</text>
+<rect x="832" y="351" width="316" height="101" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="394" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Vercel</text>
+<text x="848" y="427" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Noindex mockups</text>
+<rect x="832" y="468" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="511" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">CASL email</text>
+<text x="848" y="544" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Dry run by default</text>
+<text x="848" y="569" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">25/day, unsubscribe</text>
+<text x="40" y="700" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-style="italic" font-size="27">52 unsupported claims stripped across 14 of 33 pages</text>
+</svg>
