@@ -82,6 +82,31 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: 'CMBA Referee Clinic',
+    category: 'production',
+    description:
+      "Online training course for the Calgary Minor Basketball Association's referee program: three clinics, 34 narrated modules, quizzes that unlock the next module, a final exam, and a coordinator dashboard. 217 referees enrolled so far.",
+    longDescription:
+      "CMBA needed to train a couple hundred new and returning referees without teaching every lesson in a gym, so I built the whole program. There are three clinics (U11 rookie, 2nd year, 3rd and 4th year) with 34 modules of narrated slides. Each module ends in a quiz you have to pass before the next one opens, and the course finishes with a timed final exam drawn from a verified question bank. Inside the lessons, court diagrams animate who covers what, \"you make the call\" questions stop the narration until you commit to an answer, and FIBA training clips sit next to the rule they illustrate. There's also a working score-clock simulator for learning the table console, plus a rule lookup that searches the FIBA rulebook, FIBA's interpretations and CMBA's own modifications and cites where each answer came from. Access codes enrol each referee in the right clinic, and edge middleware keeps every page, audio file and answer key behind a valid code. Coordinators get a dashboard with per-module progress, quiz answers, reminder emails and CSV export. Every rule in the course traces back to a source document, and anything the sources didn't cover was flagged for a human instead of guessed. I kept it small on purpose: static reveal.js pages and a thin Supabase layer for progress and grading, hosted on Vercel. The screenshots come from a demo account, and learner names in the dashboard are placeholders.",
+    tech: ['JavaScript', 'reveal.js', 'Supabase', 'PostgreSQL', 'Vercel Edge Middleware'],
+    images: {
+      dark: [
+        '/projects/cmba-clinic/01-deck-title.webp',
+        '/projects/cmba-clinic/02-hub.webp',
+        '/projects/cmba-clinic/03-deck-areas.webp',
+        '/projects/cmba-clinic/04-deck-switch.webp',
+        '/projects/cmba-clinic/05-deck-reveal.webp',
+        '/projects/cmba-clinic/06-deck-check.webp',
+        '/projects/cmba-clinic/07-quiz.webp',
+        '/projects/cmba-clinic/08-deck-video.webp',
+        '/projects/cmba-clinic/09-simulator.webp',
+        '/projects/cmba-clinic/10-rules.webp',
+        '/projects/cmba-clinic/11-admin-detail.webp',
+      ],
+    },
+    featured: true,
+  },
+  {
     title: 'OK Tint',
     category: 'production',
     description:
