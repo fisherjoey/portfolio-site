@@ -300,9 +300,12 @@ export const projects: Project[] = [
       "The same library on a phone. It shares the Supabase backend with the web version, so everything stays in sync. Built for the stage: bigger text, hands-free auto-scroll, a metronome, and songs cached offline because venue WiFi is a coin flip. It runs through Expo; there's no store build yet, and transpose and the chord editor haven't been ported.",
     tech: ['React Native', 'Expo', 'TypeScript', 'Supabase'],
     images: {
-      light: ['/projects/chordapp-mobile/cover.svg', '/projects/chordapp-mobile/architecture.svg'],
+      light: [
+        '/projects/chordapp-mobile/01-screens.webp',
+        '/projects/chordapp-mobile/architecture.svg',
+        '/projects/chordapp-mobile/02-viewer.webp',
+      ],
     },
-    demo: true,
     featured: false,
   },
   {
