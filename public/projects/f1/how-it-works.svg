@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="f1-title f1-desc">
+<title id="f1-title">How F1 Fantasy Edge picks a team</title>
+<desc id="f1-desc">Four-step flow run every race weekend: pull practice and race data, read what Reddit, YouTube and betting markets expect, predict each driver's fantasy points, and let a solver pick the best team under the budget cap.</desc>
+<defs>
+<marker id="f1-arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#6B6B73"/></marker>
+<marker id="f1-arr-a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#1D3A5F"/></marker>
+</defs>
+<text x="48" y="92" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-size="44">Every race weekend, a team pick under the budget cap</text>
+<line x1="294" y1="350" x2="330" y2="350" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#f1-arr)"/>
+<line x1="582" y1="350" x2="618" y2="350" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#f1-arr)"/>
+<line x1="870" y1="350" x2="906" y2="350" stroke="#1D3A5F" stroke-width="3" marker-end="url(#f1-arr-a)"/>
+<rect x="48" y="180" width="240" height="340" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="72" y="228" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="20" letter-spacing="2">01</text>
+<text x="72" y="284" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="31" font-weight="700">Race data</text>
+<text x="72" y="338" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">Practice times,</text>
+<text x="72" y="369" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">results and history</text>
+<text x="72" y="400" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">from F1 data APIs</text>
+<rect x="336" y="180" width="240" height="340" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="360" y="228" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="20" letter-spacing="2">02</text>
+<text x="360" y="284" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="31" font-weight="700">What people</text>
+<text x="360" y="324" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="31" font-weight="700">expect</text>
+<text x="360" y="378" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">Reddit threads,</text>
+<text x="360" y="409" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">YouTube transcripts,</text>
+<text x="360" y="440" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">betting odds</text>
+<rect x="624" y="180" width="240" height="340" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="648" y="228" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="20" letter-spacing="2">03</text>
+<text x="648" y="284" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="31" font-weight="700">Predict the</text>
+<text x="648" y="324" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="31" font-weight="700">points</text>
+<text x="648" y="378" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">A copy of the</text>
+<text x="648" y="409" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">official scoring,</text>
+<text x="648" y="440" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">tested on 2025</text>
+<rect x="912" y="180" width="240" height="340" rx="8" fill="#E4E9F0" stroke="#1D3A5F" stroke-width="2.5"/>
+<text x="936" y="228" fill="#1D3A5F" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="20" letter-spacing="2">04</text>
+<text x="936" y="284" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="31" font-weight="700">Solver picks</text>
+<text x="936" y="324" fill="#1D3A5F" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="31" font-weight="700">the team</text>
+<text x="936" y="378" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">Best lineup that</text>
+<text x="936" y="409" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">fits the budget,</text>
+<text x="936" y="440" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">plus transfers</text>
+<line x1="48" y1="576" x2="1152" y2="576" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="48" y="624" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-style="italic" font-size="30">Re-runs after practice, after qualifying and after the race.</text>
+</svg>

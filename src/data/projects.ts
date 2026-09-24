@@ -249,14 +249,13 @@ export const projects: Project[] = [
     title: 'F1 Fantasy Edge',
     category: 'personal',
     description:
-      "Python research bot and optimizer for F1 fantasy. Scrapes Reddit and YouTube for what people are saying, pulls race data for what happened, then tries to find good team picks under the budget cap.",
+      "Python tool that runs my F1 Fantasy team. Every race weekend it pulls practice and race data, reads what Reddit, YouTube and the betting markets expect, predicts each driver's points, and has a solver pick the best team under the budget cap.",
     longDescription:
-      "Half research bot, half optimizer. The research half scrapes Reddit threads, pulls YouTube transcripts, and grabs race-data feeds. Basically: ingest whatever the F1 community is saying heading into a given Grand Prix, plus the actual stats. The optimizer half models the official Fantasy scoring system and walks the space of legal team configurations under the budget cap, weighted by what the research half surfaced. It exists mostly because constraint optimization is fun when the stakes are this silly.",
-    tech: ['Python', 'Web Scraping', 'NLP', 'Optimization', 'Data Analysis'],
+      "F1 Fantasy gives you a fixed budget, a price on every driver and team, and a scoring system with a lot of small rules. This tool picks my team for the 2026 season. Each race weekend it pulls practice times and results from the F1 data APIs (FastF1, Jolpica, OpenF1) into DuckDB, then reads what people expect from Reddit threads, YouTube transcripts and Polymarket odds. Separate models estimate qualifying pace, race form, pit stops, places gained and Driver of the Day votes, and a copy of the official scoring rules turns all of that into fantasy points. I tested the scoring against 2025 results before trusting it. A PuLP solver then finds the best lineup that fits the budget and suggests transfers, when to play chips, and which prices are about to move. It re-runs after practice, after qualifying and after the race. Claude Code orchestrates each run as a skill that calls the Python scripts, and the recommendation goes to my personal assistant bot. It exists mostly because constraint optimization is fun when the stakes are this silly.",
+    tech: ['Python', 'DuckDB', 'PuLP', 'FastF1 / OpenF1', 'Claude Code'],
     images: {
-      dark: ['/projects/f1/logo.svg'],
+      light: ['/projects/f1/how-it-works.svg'],
     },
-    imageMode: 'contain',
     featured: false,
   },
   {
