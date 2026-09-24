@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="cboa-arch-title cboa-arch-desc">
+<title id="cboa-arch-title">CBOA Member Portal architecture</title>
+<desc id="cboa-arch-desc">A static Next.js site on Netlify with serverless functions; Supabase holds the database, auth and CMS content, and Microsoft 365 sends email and syncs forms to Excel.</desc>
+<defs><marker id="cboa-arch-arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#6B6B73"/></marker></defs>
+<text x="40" y="78" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-size="40">Static site with a live members-only portal</text>
+<line x1="386" y1="402" x2="424" y2="402" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#cboa-arch-arr)"/>
+<line x1="776" y1="402" x2="814" y2="402" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#cboa-arch-arr)"/>
+<rect x="40" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="56" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">WHO USES IT</text>
+<rect x="52" y="234" width="316" height="160" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="68" y="277" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Public</text>
+<text x="68" y="311" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">visitors</text>
+<text x="68" y="344" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">News, resources</text>
+<text x="68" y="369" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Contact forms</text>
+<rect x="52" y="410" width="316" height="160" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="68" y="453" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Members &amp;</text>
+<text x="68" y="487" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">admins</text>
+<text x="68" y="520" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Email + password</text>
+<text x="68" y="545" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Supabase Auth</text>
+<rect x="430" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="446" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">THE APP</text>
+<rect x="442" y="238" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="458" y="281" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Next.js site</text>
+<text x="458" y="314" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Static export</text>
+<text x="458" y="339" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Served by Netlify</text>
+<rect x="442" y="380" width="316" height="185" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="458" y="423" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Netlify</text>
+<text x="458" y="457" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">functions</text>
+<text x="458" y="490" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">41 API endpoints</text>
+<text x="458" y="515" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Role checks</text>
+<text x="458" y="540" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Rate limiting</text>
+<rect x="820" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="836" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">DATA &amp; SERVICES</text>
+<rect x="832" y="268" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="311" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Supabase</text>
+<text x="848" y="344" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Postgres + files</text>
+<text x="848" y="369" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Custom CMS content</text>
+<rect x="832" y="410" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="453" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Microsoft 365</text>
+<text x="848" y="486" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Graph API email</text>
+<text x="848" y="511" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Excel form sync</text>
+<text x="40" y="700" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-style="italic" font-size="27">Pages are static files; Supabase and serverless functions do the rest.</text>
+</svg>

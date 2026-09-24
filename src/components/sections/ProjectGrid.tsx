@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ExternalLink, Info } from 'lucide-react'
+import { ExternalLink, Info, Sparkles } from 'lucide-react'
 import { GithubIcon } from '../ui/BrandIcons'
 import type { Project } from '../../data/projects'
 import Container from '../ui/Container'
@@ -115,6 +115,13 @@ function ProjectCard({
         <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4 flex-1">
           {project.description}
         </p>
+
+        {project.ai && (
+          <p className="flex items-start gap-1.5 text-xs font-mono text-[var(--color-brand-accent)] leading-relaxed mb-4">
+            <Sparkles className="w-3.5 h-3.5 mt-0.5 shrink-0" aria-hidden="true" />
+            <span><span className="font-semibold">AI:</span> {project.ai}</span>
+          </p>
+        )}
 
         <div className="flex flex-wrap gap-1.5 mb-4">
           {project.tech.slice(0, 5).map((t) => (

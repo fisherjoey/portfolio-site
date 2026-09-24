@@ -35,44 +35,28 @@ export interface Project {
    * note (e.g. for apps holding client data that can't be shown).
    */
   demo?: boolean
+  /**
+   * Where the project uses AI / an LLM, in a few words (e.g. "Claude API writes the
+   * weekly summary"). Shown as a highlighted line on the card and in the lightbox.
+   */
+  ai?: string
 }
 
 export const projects: Project[] = [
   // ─────────── Production ───────────
   {
-    title: 'SyncedSport',
-    category: 'production',
-    description:
-      "League-management platform for sports officiating associations. Custom matching algorithm with an LLM fallback for the edge cases, plus a chatbot that lets coordinators query their data in plain English. Currently in pilot with one live league.",
-    longDescription:
-      "Sports leagues spend hours every week mapping referees to games. Who's available, who's qualified for the level, who's already booked, who lives close enough. SyncedSport does it in seconds with a custom matching algorithm I designed. An LLM step takes over for the messy edge cases the algorithm can't resolve cleanly. There's also a data chatbot so coordinators can ask plain-English questions of their league data and get a report back instead of building a query. Sole developer end-to-end: schema, REST API, React UI, CI, and deploy. Currently in pilot with one live league.",
-    tech: ['TypeScript', 'Next.js', 'Node.js', 'PostgreSQL', 'AI/LLM'],
-    live: 'https://syncedsport.com',
-    images: {
-      dark: [
-        '/projects/sportsmanager/01-home-dark.webp',
-        '/projects/sportsmanager/02-features-dark.webp',
-        '/projects/sportsmanager/03-scheduling-dark.webp',
-        '/projects/sportsmanager/04-assignors-dark.webp',
-        '/projects/sportsmanager/05-officials-dark.webp',
-        '/projects/sportsmanager/06-pricing-dark.webp',
-        '/projects/sportsmanager/07-analytics-dark.webp',
-      ],
-    },
-    featured: true,
-  },
-  {
     title: 'CBOA Member Portal',
     category: 'production',
     description:
-      "Live member portal for the Calgary Basketball Officials Association. 200+ active users. Custom CMS, real auth, internal email through Microsoft Graph.",
+      "Live member portal for the Calgary Basketball Officials Association. 200+ active users. Custom CMS, real auth, and email through Microsoft Graph.",
     longDescription:
-      "Public-facing static site backed by a custom database-driven CMS I built from scratch. Real auth, an internal email tool piped through Microsoft Graph, and 200+ active members hitting it without a production incident I've had to firefight.",
-    tech: ['TypeScript', 'React', 'Supabase', 'Netlify', 'MS Graph API'],
+      "A static Next.js site on Netlify, backed by a database-driven CMS I built from scratch on Supabase. Members sign in with Supabase Auth, and about 40 Netlify functions handle everything that needs a server, with role checks and rate limiting. Microsoft Graph sends the association's email (announcements, password resets, welcome emails, contact-form mail) and syncs form submissions into an Excel workbook the board already uses. 200+ active members use it without a production incident I've had to firefight.",
+    tech: ['TypeScript', 'Next.js', 'Supabase', 'Netlify Functions', 'MS Graph API'],
     live: 'https://cboa.ca',
     images: {
       dark: [
         '/projects/cboa/01-home-dark.webp',
+        '/projects/cboa/architecture.svg',
         '/projects/cboa/02-dashboard-dark.webp',
         '/projects/cboa/03-calendar-dark.webp',
         '/projects/cboa/04-resources-dark.webp',
@@ -87,11 +71,13 @@ export const projects: Project[] = [
     description:
       "Online training course for the Calgary Minor Basketball Association's referee program: three clinics, 34 narrated modules, quizzes that unlock the next module, a final exam, and a coordinator dashboard. 217 referees enrolled so far.",
     longDescription:
-      "CMBA needed to train a couple hundred new and returning referees without teaching every lesson in a gym, so I built the whole program. There are three clinics (U11 rookie, 2nd year, 3rd and 4th year) with 34 modules of narrated slides. Each module ends in a quiz you have to pass before the next one opens, and the course finishes with a timed final exam drawn from a verified question bank. Inside the lessons, court diagrams animate who covers what, \"you make the call\" questions stop the narration until you commit to an answer, and FIBA training clips sit next to the rule they illustrate. There's also a working score-clock simulator for learning the table console, plus a rule lookup that searches the FIBA rulebook, FIBA's interpretations and CMBA's own modifications and cites where each answer came from. Access codes enrol each referee in the right clinic, and edge middleware keeps every page, audio file and answer key behind a valid code. Coordinators get a dashboard with per-module progress, quiz answers, reminder emails and CSV export. Every rule in the course traces back to a source document, and anything the sources didn't cover was flagged for a human instead of guessed. I kept it small on purpose: static reveal.js pages and a thin Supabase layer for progress and grading, hosted on Vercel. The screenshots come from a demo account, and learner names in the dashboard are placeholders.",
-    tech: ['JavaScript', 'reveal.js', 'Supabase', 'PostgreSQL', 'Vercel Edge Middleware'],
+      "CMBA needed to train a couple hundred new and returning referees without teaching every lesson in a gym, so I built the whole program. There are three clinics (U11 rookie, 2nd year, 3rd and 4th year) with 34 modules of narrated slides. Each module ends in a quiz you have to pass before the next one opens, and the course finishes with a timed final exam drawn from a verified question bank. Inside the lessons, court diagrams animate who covers what, \"you make the call\" questions stop the narration until you commit to an answer, and FIBA training clips sit next to the rule they illustrate. There's also a working score-clock simulator for learning the table console. The rule lookup searches the FIBA rulebook, FIBA's interpretations and CMBA's own modifications, and cites every passage it returns. It's built so Claude Haiku can turn only those cited passages into a short answer, and it shows the passages themselves when the model is off. Access codes enrol each referee in the right clinic, and edge middleware keeps every page, audio file and answer key behind a valid code. Coordinators get a dashboard with per-module progress, quiz answers, reminder emails and CSV export. Every rule in the course traces back to a source document, and anything the sources didn't cover was flagged for a human instead of guessed. I kept it small on purpose: static reveal.js pages, two Python functions and a thin Supabase layer for progress and grading, hosted on Vercel. The screenshots come from a demo account, and learner names in the dashboard are placeholders.",
+    tech: ['JavaScript', 'reveal.js', 'Supabase', 'Python', 'Vercel Edge Middleware'],
+    ai: 'Rule lookup where Claude Haiku answers only from the passages search found, with citations',
     images: {
       dark: [
         '/projects/cmba-clinic/01-deck-title.webp',
+        '/projects/cmba-clinic/architecture.svg',
         '/projects/cmba-clinic/02-hub.webp',
         '/projects/cmba-clinic/03-deck-areas.webp',
         '/projects/cmba-clinic/04-deck-switch.webp',
@@ -107,16 +93,16 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: 'OK Tint',
+    title: 'Okotoks Tinting Marketing Site',
     category: 'production',
     description:
-      "Marketing site for an automotive window-tinting business. React + Vite, Sanity CMS, MapLibre for the showroom map.",
+      "Marketing and quote site for an automotive window-tinting shop in Okotoks. Sanity CMS runs the content, and quote requests go straight into the shop's CRM.",
     longDescription:
-      "Production marketing site for OK Tinting, sitting on top of SyncedBase (the template repo I built so I could ship sites like this in days). Sanity drives the nav, services, pricing, and portfolio. The showroom locator runs on MapLibre. Page routing is dynamic, so the client can spin up new service pages from the CMS without a redeploy.",
-    tech: ['React', 'Vite', 'Sanity CMS', 'MapLibre', 'TypeScript'],
+      "Production site for Okotoks Tinting. Sanity drives the nav, services, pricing, portfolio and reviews, and pages are routed from the CMS at runtime, so the shop can add a service page without a redeploy. Vercel functions handle the quote form: each request becomes a customer and a job in the shop's Urable CRM, with an email alert through Resend and a conversion event sent to Meta. Google reviews refresh daily, and a MapLibre map shows the showroom. The reusable parts of this build later became SyncedBase, the template I start client sites from.",
+    tech: ['React', 'Vite', 'Sanity CMS', 'Vercel Functions', 'TypeScript'],
     live: 'https://okotokstinting.com',
     images: {
-      dark: ['/projects/oktint/01-home.webp'],
+      dark: ['/projects/oktint/01-home.webp', '/projects/oktint/architecture.svg'],
     },
     featured: true,
   },
@@ -124,12 +110,13 @@ export const projects: Project[] = [
     title: 'Small-Business Analytics Dashboard',
     category: 'production',
     description:
-      "Internal analytics dashboard for a small-business client. Google Analytics, Supabase, and Claude API in one place, so the operators don't have to log into three apps to know how the week went.",
+      "Dashboard for a small-business client: CRM revenue, ads, web traffic and social in one login, plus an AI analyst that answers questions from the shop's own numbers.",
     longDescription:
-      "Next.js analytics dashboard built for a client. Pulls traffic from Google Analytics, leads and bookings from Supabase, and runs the lot through Claude once a week for a plain-English summary. Exists because non-technical operators shouldn't have to spelunk GA reports to know whether the month was good.",
-    tech: ['Next.js', 'Supabase', 'Google Analytics', 'Claude API', 'TypeScript'],
+      "Built so non-technical operators don't have to open six apps to know how the month went. It pulls customers and revenue from the Urable CRM (cached in Supabase), traffic and conversions from GA4, and data from Google Ads, Search Console, Instagram, Facebook, TikTok and YouTube. Staff can also draft and publish social posts from it. The AI analyst is a chat: you ask a question in plain English, the app works out which numbers it needs, loads only those, and a language model answers from that data alone. It uses DeepSeek by default and falls back to Claude. API keys entered in settings are stored encrypted.",
+    tech: ['Next.js', 'Supabase', 'Claude API', 'DeepSeek', 'TypeScript'],
+    ai: "Chat analyst that answers from the shop's own data (DeepSeek, with Claude as the fallback)",
     images: {
-      light: ['/projects/analytics/cover.svg'],
+      light: ['/projects/analytics/cover.svg', '/projects/analytics/architecture.svg'],
     },
     demo: true,
     featured: false,
@@ -142,10 +129,11 @@ export const projects: Project[] = [
     description:
       "Computational-chemistry tool that scans 3-D protein structures to shortlist cancer proteins an arsenic-based drug could latch onto. Built to support a friend's chemistry master's thesis.",
     longDescription:
-      "Arsenic trioxide is already an approved cancer drug. It works by binding a cluster of three sulfur \"anchor points\" on one specific protein. The open question for new therapies is which other cancer proteins share that same three-anchor geometry, and there's no database of it. So this tool computes it directly: it reads 3-D protein structures (from AlphaFold and the Protein Data Bank), measures the distances between candidate sulfur atoms, and ranks the proteins whose geometry looks most \"arsenic-ready.\" It filters out false positives (anchors already locked into other bonds), flags promising metal-binding sites, and writes ready-to-open 3-D viewer scripts so the chemist can check each hit by eye. I built the computational and engineering side; the chemistry direction came from my friend's master's research, and my chemistry minor was just enough to meet them in the middle. The repo stays private while the research is ongoing.",
-    tech: ['Python', 'Computational Chemistry', 'Structural Bioinformatics', 'AlphaFold / PDB', 'ChimeraX'],
+      "Arsenic trioxide is already an approved cancer drug. It works by binding a cluster of three sulfur \"anchor points\" on one specific protein. The open question for new therapies is which other cancer proteins share that same three-anchor geometry, and there's no database of it. So this tool computes it directly: it reads 3-D protein structures (from AlphaFold and the Protein Data Bank), measures the distances between candidate sulfur atoms, and ranks the proteins whose geometry looks most \"arsenic-ready.\" It filters out false positives (anchors already locked into other bonds), flags promising metal-binding sites in experimental structures, and writes ready-to-open 3-D viewer scripts so the chemist can check each hit by eye. An optional step sends mutated protein sequences to Meta's ESMFold model to predict their new shape. It runs locally as a Python command-line tool. I built the computational and engineering side; the chemistry direction came from my friend's master's research, and my chemistry minor was just enough to meet them in the middle. The repo stays private while the research is ongoing.",
+    tech: ['Python', 'Computational Chemistry', 'AlphaFold / PDB', 'ESMFold', 'ChimeraX'],
+    ai: "ESMFold (Meta's protein-folding model) predicts the shape of mutated proteins",
     images: {
-      light: ['/projects/arsenic-cys-finder/trithiolate.webp'],
+      light: ['/projects/arsenic-cys-finder/trithiolate.webp', '/projects/arsenic-cys-finder/architecture.svg'],
     },
     imageMode: 'contain',
     status: 'Research project',
@@ -160,56 +148,60 @@ export const projects: Project[] = [
       "Architected during a previous full-time role. Prometheus and Grafana handle the data layer: metrics collection and visualization. The work I'm proud of is the custom webapp built on top: multi-tenant dashboards so each customer organization gets their own view, alert routing wired into on-call rotations so issues page the right engineer instead of everyone, role-based access control, and incident history. Custom Node-based exporters fill in the gaps the standard ones missed (SSL expiry, internal service health, stack-specific metrics). Rolled out to 10+ customer organizations and caught outages they would've otherwise discovered the hard way.",
     tech: ['Node.js', 'Prometheus', 'Grafana', 'Multi-tenant', 'Docker'],
     images: {
-      dark: ['/projects/monitoring/stack.svg'],
+      dark: ['/projects/monitoring/stack.svg', '/projects/monitoring/architecture.svg'],
     },
     featured: false,
-  },
-  {
-    title: 'Quest Canada Analytics',
-    category: 'professional',
-    description:
-      "Gap-analysis platform built for a real client. I was the only developer on a five-person team. The other four were business students.",
-    longDescription:
-      "Built for CPSC 405, U of C's applied client course. Five-person team: four business students and me, the developer. The deliverable was a working web app: React on the frontend, Node and Postgres on the backend, Apache Superset embedded for the dashboards. Milestones, project tracking, charts.",
-    tech: ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Apache Superset'],
-    github: 'https://github.com/fisherjoey/Quest-Canada-Analytics',
-    images: {
-      dark: [
-        '/projects/quest-canada/01-landing-dark.webp',
-        '/projects/quest-canada/02-dashboards-dark.webp',
-        '/projects/quest-canada/03-milestones-dark.webp',
-        '/projects/quest-canada/04-project-dark.webp',
-      ],
-    },
-    featured: true,
   },
   {
     title: 'SyncedBase',
     category: 'professional',
     description:
-      "Template repo for small-business sites. Spin up a new client site in days instead of weeks.",
+      "Template repo for small-business sites, pulled out of the Okotoks Tinting build. A new client site starts with themes, sections and a CMS already done.",
     longDescription:
-      "I got tired of starting client sites from scratch every time, so I built one base I could fork. React + Vite + Sanity. The interesting parts are the theme system (around 15 palettes and 6 themes that change the visual feel completely) and a section library: hero, pricing, testimonials, portfolio gallery, contact, the usual stuff. Plus content packs for the verticals I work in. OK Tint runs on it.",
+      "After building the Okotoks Tinting site I pulled the reusable parts into one base I fork for each client. React + Vite + Sanity. It has 6 themes and 20 colour palettes, 40+ section blocks (hero, pricing, testimonials, gallery, contact and the rest), an automotive content pack, and Vercel functions for the quote form and Google reviews. Client sites pull template updates with a git merge instead of copy-paste.",
     tech: ['React', 'Vite', 'Sanity CMS', 'Tailwind 4', 'TypeScript'],
     images: {
-      dark: ['/projects/syncedbase/process.svg'],
+      dark: ['/projects/syncedbase/process.svg', '/projects/syncedbase/architecture.svg'],
     },
     featured: false,
   },
 
-  // ─────────── Personal apps ───────────
+  // ─────────── Personal / side projects ───────────
+  {
+    title: 'SyncedSport',
+    category: 'personal',
+    description:
+      "Side project: a league-management platform for sports officiating. An optimization solver assigns referees to games, and scheduling, payouts and analytics live in one app.",
+    longDescription:
+      "Sports leagues spend hours every week mapping referees to games: who's available, who's qualified for the level, who's already booked, who lives close enough. SyncedSport does it in seconds. The matching engine models the week as a min-cost-flow graph and hands the hard cases to a MILP solver (HiGHS) running in a worker thread. Around it sits the rest of the job: game scheduling with CSV import, an assignment center, referee availability and declines, payouts through Stripe Connect, referee earnings, and season analytics. It's a Next.js front end on an Express API, with Cerbos deciding who can see and change what, Postgres and a Redis job queue underneath, and Docker Compose on DigitalOcean. I'm the only developer: schema, API, UI, CI and deploy. I kept AI out of the matching on purpose. The AI piece in progress is a read-only MCP connector, so an assistant like Claude can look up games, referees and coverage without being able to change anything. Screenshots are the product previews from the public site.",
+    tech: ['TypeScript', 'Next.js', 'Express', 'PostgreSQL', 'HiGHS (MILP)'],
+    ai: 'Read-only MCP connector so Claude can query league data (in testing)',
+    live: 'https://syncedsport.com',
+    images: {
+      dark: [
+        '/projects/syncedsport/01-games.webp',
+        '/projects/syncedsport/architecture.svg',
+        '/projects/syncedsport/02-assignment-center.webp',
+        '/projects/syncedsport/03-analytics.webp',
+        '/projects/syncedsport/04-payouts.webp',
+        '/projects/syncedsport/05-referee-earnings.webp',
+      ],
+    },
+    featured: true,
+  },
   {
     title: 'ChordApp',
     category: 'personal',
     description:
-      "Chord library app for musicians. Imports chord sheets from anywhere on the web, plus the on-stage stuff: transpose, auto-scroll, setlists.",
+      "Chord library app for musicians. Imports chord sheets from Ultimate Guitar and other chord sites, plus the on-stage stuff: transpose, auto-scroll, setlists.",
     longDescription:
-      "I built ChordApp because Ultimate Guitar's UX wears me out. Search any song and it pulls chord sheets and lyrics from a handful of sources. You get the on-stage features I wanted: transpose, capo, auto-scroll, metronome, setlists, PDF export. The interesting work is under the hood: a scraper that copes with whatever page layout each site decides to use that week, plus fuzzy matching so you don't end up with five copies of the same song.",
-    tech: ['TypeScript', 'React', 'Web Scraping', 'Supabase', 'REST APIs'],
+      "I built ChordApp because Ultimate Guitar's UX wears me out. Search any song and it pulls chord sheets and lyrics from a handful of sources. You get the on-stage features I wanted: transpose, capo, auto-scroll, metronome, setlists, PDF export. The interesting work is under the hood: a scraper proxy on my home server that fetches the pages, a parser for Ultimate Guitar's layout plus a best-effort one for everything else, and fuzzy matching that merges duplicate search results.",
+    tech: ['TypeScript', 'React', 'Web Scraping', 'Supabase', 'PWA'],
     live: 'https://chords.joeyfishertech.com',
     images: {
       dark: [
         '/projects/chordapp/01-home-dark.webp',
+        '/projects/chordapp/architecture.svg',
         '/projects/chordapp/02-search-dark.webp',
         '/projects/chordapp/03-viewer-dark.webp',
         '/projects/chordapp/04-setlist-dark.webp',
@@ -223,10 +215,10 @@ export const projects: Project[] = [
     description:
       "Expo / React Native version of ChordApp. Same Supabase backend, so what you save on web shows up on your phone.",
     longDescription:
-      "Same app, on a phone. Shares the Supabase backend with the web version so the library stays in sync. Built for using on stage: bigger text, hands-free auto-scroll, setlists cached offline because venue WiFi is a coin flip.",
+      "The same library on a phone. It shares the Supabase backend with the web version, so everything stays in sync. Built for the stage: bigger text, hands-free auto-scroll, a metronome, and songs cached offline because venue WiFi is a coin flip. It runs through Expo; there's no store build yet, and transpose and the chord editor haven't been ported.",
     tech: ['React Native', 'Expo', 'TypeScript', 'Supabase'],
     images: {
-      light: ['/projects/chordapp-mobile/cover.svg'],
+      light: ['/projects/chordapp-mobile/cover.svg', '/projects/chordapp-mobile/architecture.svg'],
     },
     demo: true,
     featured: false,
@@ -235,12 +227,12 @@ export const projects: Project[] = [
     title: 'SyncedTech Portal',
     category: 'personal',
     description:
-      "CRM, timesheets, and invoicing for my consultancy. Automates the path from logging hours to collecting payment.",
+      "CRM, timesheets and invoicing for my consultancy. A daily job drafts each client's invoice on their billing day and emails it.",
     longDescription:
-      "The internal portal I run SyncedTech on. Tracks clients and projects (CRM), captures hours against them (timesheets), and turns those hours into invoices and payment reminders without me re-keying data between three different apps. Closing the loop from work-done to money-in is the part worth automating.",
-    tech: ['Next.js', 'TypeScript', 'Supabase'],
+      "The system I run SyncedTech on. It tracks prospects, clients and projects, captures hours and expenses, handles retainers with prorated billing, and generates proposal and invoice PDFs. A Vercel cron drafts invoices on each client's billing day and sends them automatically for clients set to auto-send. Clients get a read-only portal for their invoices, and an office server reports into an IT monitoring view. Next.js and Supabase, with email over SMTP.",
+    tech: ['Next.js', 'TypeScript', 'Supabase', 'Vercel Cron', 'React PDF'],
     images: {
-      light: ['/projects/syncedtech-portal/cover.svg'],
+      light: ['/projects/syncedtech-portal/cover.svg', '/projects/syncedtech-portal/architecture.svg'],
     },
     demo: true,
     featured: false,
@@ -249,12 +241,13 @@ export const projects: Project[] = [
     title: 'F1 Fantasy Edge',
     category: 'personal',
     description:
-      "Python tool that runs my F1 Fantasy team. Every race weekend it pulls practice and race data, reads what Reddit, YouTube and the betting markets expect, predicts each driver's points, and has a solver pick the best team under the budget cap.",
+      "Agent-run F1 Fantasy manager. Claude Code agents keep prices and results current, read what Reddit, YouTube and betting markets expect, and run a solver to pick the best team under the budget cap.",
     longDescription:
-      "F1 Fantasy gives you a fixed budget, a price on every driver and team, and a scoring system with a lot of small rules. This tool picks my team for the 2026 season. Each race weekend it pulls practice times and results from the F1 data APIs (FastF1, Jolpica, OpenF1) into DuckDB, then reads what people expect from Reddit threads, YouTube transcripts and Polymarket odds. Separate models estimate qualifying pace, race form, pit stops, places gained and Driver of the Day votes, and a copy of the official scoring rules turns all of that into fantasy points. I tested the scoring against 2025 results before trusting it. A PuLP solver then finds the best lineup that fits the budget and suggests transfers, when to play chips, and which prices are about to move. It re-runs after practice, after qualifying and after the race. Claude Code orchestrates each run as a skill that calls the Python scripts, and the recommendation goes to my personal assistant bot. It exists mostly because constraint optimization is fun when the stakes are this silly.",
-    tech: ['Python', 'DuckDB', 'PuLP', 'FastF1 / OpenF1', 'Claude Code'],
+      "F1 Fantasy gives you a fixed budget, a price on every driver and team, and a scoring system with a lot of small rules. This project runs my team for the 2026 season as an agent loop. Two Claude Code cloud routines run on a schedule: one snapshots every price daily, the other books each race's official results on Monday and commits them to the repo. My LifeOS bot reads the race calendar and reminds me before each team lock. On race weekends I run Claude Code skills after practice, qualifying and the race. The agent pulls practice times and results from the F1 data APIs (FastF1, Jolpica, OpenF1) into DuckDB, reads Reddit threads, YouTube transcripts and Polymarket odds, runs the Python models (qualifying pace, race form, pit stops, places gained, Driver of the Day) and a copy of the official scoring, then uses a PuLP solver to propose the best lineup, transfers and chip timing. I approve the moves. I tested the scoring against 2025 results before trusting any of it. It exists mostly because constraint optimization is fun when the stakes are this silly.",
+    tech: ['Python', 'Claude Code', 'DuckDB', 'PuLP', 'FastF1 / OpenF1'],
+    ai: 'Claude Code agents run the data loop on a schedule and plan each race weekend',
     images: {
-      light: ['/projects/f1/how-it-works.svg'],
+      light: ['/projects/f1/how-it-works.svg', '/projects/f1/architecture.svg'],
     },
     featured: false,
   },
@@ -262,12 +255,12 @@ export const projects: Project[] = [
     title: 'StremiJoe',
     category: 'personal',
     description:
-      "React Native mobile app built on Stremio's architecture, with offline downloads added so I can pull content onto my phone before going somewhere without WiFi.",
+      "React Native app plus a small self-hosted server for watching my shows, with offline downloads for when there's no WiFi.",
     longDescription:
-      "Mirrors Stremio's plugin-and-source architecture, but as a React Native mobile app instead of a desktop client. Same model: pluggable content sources feeding a unified library and a single playback layer. The reason this exists separate from Stremio is offline downloads. I can stash episodes on my phone before a flight and watch them on the plane. Runs on Expo, expo-router for navigation, native media playback under the hood.",
-    tech: ['React Native', 'Expo', 'TypeScript', 'expo-router', 'Media Playback'],
+      "A mobile app for my own shows, built so I can stash episodes on my phone before a flight. The app talks to one server I host (Node, Express and SQLite on my home server), which finds sources through Stremio's Torrentio and Cinemeta addons and resolves them to direct links on Real-Debrid. The phone then downloads straight from Real-Debrid and plays the file with expo-av. Subtitles come from the OpenSubtitles addon.",
+    tech: ['React Native', 'Expo', 'TypeScript', 'Node.js', 'SQLite'],
     images: {
-      light: ['/projects/stremijoe/cover.svg'],
+      light: ['/projects/stremijoe/cover.svg', '/projects/stremijoe/architecture.svg'],
     },
     demo: true,
     featured: false,
@@ -276,15 +269,16 @@ export const projects: Project[] = [
     title: 'React Annotator',
     category: 'personal',
     description:
-      'Browser extensions (Chrome + Firefox) for annotating React components on any page and exporting the selection straight to Claude Code.',
+      'Browser extensions (Chrome + Firefox) for pointing at any React component on a page, annotating it, and handing the exact context to Claude Code.',
     longDescription:
-      "Two browser extensions that let me point at any React component on a live page, annotate it, and hand the exact selection to Claude Code instead of describing it in prose. Walks the React fiber tree to resolve the component under the cursor, captures props/source location, and serializes a payload Claude can act on. Ships for both Chrome and Firefox.",
-    tech: ['JavaScript', 'Browser Extension (MV3)', 'React Internals', 'Claude Code'],
+      "Two browser extensions that let me point at a React component on a live page, annotate it, and give Claude Code the exact selection instead of describing it in prose. A page script walks the React fiber tree to find the component under the cursor and its source file. The extension records the component name, file, classes, HTML and a cropped screenshot, keeps notes in local storage, and exports them as Markdown to paste into Claude Code. It makes no network calls. Chrome and Firefox builds.",
+    tech: ['JavaScript', 'Browser Extension', 'React Internals', 'Claude Code'],
+    ai: 'Packages UI context as Markdown for Claude Code',
     github: 'https://github.com/fisherjoey/react-annotator-chrome',
     githubSecondary: 'https://github.com/fisherjoey/react-annotator-firefox',
     githubSecondaryLabel: 'Firefox',
     images: {
-      light: ['/projects/react-annotator/cover.svg'],
+      light: ['/projects/react-annotator/cover.svg', '/projects/react-annotator/architecture.svg'],
     },
     demo: true,
     featured: false,
@@ -293,14 +287,14 @@ export const projects: Project[] = [
     title: 'TT Save Editor',
     category: 'personal',
     description:
-      "Browser save editor for LEGO Batman: Legacy of the Dark Knight. Fixes the \"created on an updated version\" error and unlocks collectibles, characters, and missions. It runs entirely in the browser, so nothing gets uploaded.",
+      "Browser save editor for LEGO Batman: Legacy of the Dark Knight. Fixes the \"created on an updated version\" error and edits progress and unlocks. It runs entirely in the browser, so nothing gets uploaded.",
     longDescription:
-      "A fully client-side save editor for LEGO Batman: Legacy of the Dark Knight. Parses the binary save format in the browser so nothing ever leaves your machine, fixes the common \"created on an updated version\" load error, and lets you unlock collectibles and characters or edit progress directly. The interesting part is reverse-engineering the save layout and doing the byte-level edits safely in TypeScript.",
+      "A fully client-side save editor for LEGO Batman: Legacy of the Dark Knight. Saves are RC4-encrypted (the key was found by @RealDarkCraft), so the editor decrypts the file, parses the Unreal save format, and edits it in the browser without anything leaving your machine. It fixes the common \"created on an updated version\" load error and lets you edit progress and unlocks directly. Every loaded save gets a byte-exact round-trip check, and export is refused if it fails. There's also a single-file offline build.",
     tech: ['TypeScript', 'React', 'Vite', 'Client-side', 'Binary parsing'],
     github: 'https://github.com/fisherjoey/tt-save-editor',
     live: 'https://tt-save-editor.vercel.app',
     images: {
-      dark: ['/projects/tt-save-editor/01-home.webp'],
+      dark: ['/projects/tt-save-editor/01-home.webp', '/projects/tt-save-editor/architecture.svg'],
     },
     featured: false,
   },

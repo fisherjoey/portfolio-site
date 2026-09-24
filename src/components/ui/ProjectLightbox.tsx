@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react'
-import { X, ChevronLeft, ChevronRight, ExternalLink, Info } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, ExternalLink, Info, Sparkles } from 'lucide-react'
 import { GithubIcon } from './BrandIcons'
 import type { Project } from '../../data/projects'
 
@@ -148,6 +148,13 @@ export default function ProjectLightbox({ project, onClose }: ProjectLightboxPro
           <p className="text-[var(--text-secondary)] leading-relaxed mb-5">
             {project.longDescription ?? project.description}
           </p>
+
+          {project.ai && (
+            <p className="flex items-start gap-2 text-sm font-mono text-[var(--color-brand-accent)] leading-relaxed mb-4">
+              <Sparkles className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />
+              <span><span className="font-semibold">AI:</span> {project.ai}</span>
+            </p>
+          )}
 
           <div className="flex flex-wrap gap-1.5">
             {project.tech.map((t) => (
