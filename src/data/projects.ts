@@ -112,13 +112,19 @@ export const projects: Project[] = [
     description:
       "Dashboard for a small-business client: CRM revenue, ads, web traffic and social in one login, plus an AI analyst that answers questions from the shop's own numbers.",
     longDescription:
-      "Built so non-technical operators don't have to open six apps to know how the month went. It pulls customers and revenue from the Urable CRM (cached in Supabase), traffic and conversions from GA4, and data from Google Ads, Search Console, Instagram, Facebook, TikTok and YouTube. Staff can also draft and publish social posts from it. The AI analyst is a chat: you ask a question in plain English, the app works out which numbers it needs, loads only those, and a language model answers from that data alone. It uses DeepSeek by default and falls back to Claude. API keys entered in settings are stored encrypted.",
+      "Built so non-technical operators don't have to open six apps to know how the month went. It pulls customers and revenue from the Urable CRM (cached in Supabase), traffic and conversions from GA4, and data from Google Ads, Search Console, Instagram, Facebook, TikTok and YouTube. Staff can also draft and publish social posts from it. The AI analyst is a chat: you ask a question in plain English, the app works out which numbers it needs, loads only those, and a language model answers from that data alone. It uses DeepSeek by default and falls back to Claude. API keys entered in settings are stored encrypted. The screenshots run on invented customers and numbers.",
     tech: ['Next.js', 'Supabase', 'Claude API', 'DeepSeek', 'TypeScript'],
     ai: "Chat analyst that answers from the shop's own data (DeepSeek, with Claude as the fallback)",
     images: {
-      light: ['/projects/analytics/cover.svg', '/projects/analytics/architecture.svg'],
+      light: [
+        '/projects/analytics/01-overview.webp',
+        '/projects/analytics/02-ai-analyst.webp',
+        '/projects/analytics/architecture.svg',
+        '/projects/analytics/03-customers.webp',
+        '/projects/analytics/04-conversions.webp',
+        '/projects/analytics/05-customer-attribution.webp',
+      ],
     },
-    demo: true,
     featured: false,
   },
 
@@ -229,12 +235,18 @@ export const projects: Project[] = [
     description:
       "CRM, timesheets and invoicing for my consultancy. A daily job drafts each client's invoice on their billing day and emails it.",
     longDescription:
-      "The system I run SyncedTech on. It tracks prospects, clients and projects, captures hours and expenses, handles retainers with prorated billing, and generates proposal and invoice PDFs. A Vercel cron drafts invoices on each client's billing day and sends them automatically for clients set to auto-send. Clients get a read-only portal for their invoices, and an office server reports into an IT monitoring view. Next.js and Supabase, with email over SMTP.",
+      "The system I run SyncedTech on. It tracks prospects, clients and projects, captures hours and expenses, handles retainers with prorated billing, and generates proposal and invoice PDFs. A Vercel cron drafts invoices on each client's billing day and sends them automatically for clients set to auto-send. Clients get a read-only portal for their invoices, and an office server reports into an IT monitoring view. Next.js and Supabase, with email over SMTP. The screenshots use invented clients and numbers.",
     tech: ['Next.js', 'TypeScript', 'Supabase', 'Vercel Cron', 'React PDF'],
     images: {
-      light: ['/projects/syncedtech-portal/cover.svg', '/projects/syncedtech-portal/architecture.svg'],
+      light: [
+        '/projects/syncedtech-portal/01-dashboard.webp',
+        '/projects/syncedtech-portal/architecture.svg',
+        '/projects/syncedtech-portal/02-clients.webp',
+        '/projects/syncedtech-portal/03-time-entries.webp',
+        '/projects/syncedtech-portal/04-invoice-preview.webp',
+        '/projects/syncedtech-portal/05-proposal.webp',
+      ],
     },
-    demo: true,
     featured: false,
   },
   {
