@@ -348,16 +348,21 @@ export const projects: Project[] = [
     description:
       'Browser extensions (Chrome + Firefox) for pointing at any React component on a page, annotating it, and handing the exact context to Claude Code.',
     longDescription:
-      "Two browser extensions that let me point at a React component on a live page, annotate it, and give Claude Code the exact selection instead of describing it in prose. A page script walks the React fiber tree to find the component under the cursor and its source file. The extension records the component name, file, classes, HTML and a cropped screenshot, keeps notes in local storage, and exports them as Markdown to paste into Claude Code. It makes no network calls. Chrome and Firefox builds.",
+      "Two browser extensions that let me point at a React component on a live page, annotate it, and give Claude Code the exact selection instead of describing it in prose. A script running in the page's own JavaScript world walks the React fiber tree to find the component under the cursor. React 19 no longer exposes source locations, so the file path is a suggestion flagged for checking. The extension records the component name, suggested file, classes, HTML and a cropped screenshot, keeps notes in local storage, and exports them as Markdown to paste into Claude Code. It makes no network calls. Chrome and Firefox builds.",
     tech: ['JavaScript', 'Browser Extension', 'React Internals', 'Claude Code'],
     ai: 'Packages UI context as Markdown for Claude Code',
     github: 'https://github.com/fisherjoey/react-annotator-chrome',
     githubSecondary: 'https://github.com/fisherjoey/react-annotator-firefox',
     githubSecondaryLabel: 'Firefox',
     images: {
-      light: ['/projects/react-annotator/cover.svg', '/projects/react-annotator/architecture.svg'],
+      light: [
+        '/projects/react-annotator/02-note.webp',
+        '/projects/react-annotator/architecture.svg',
+        '/projects/react-annotator/01-select.webp',
+        '/projects/react-annotator/03-popup.webp',
+        '/projects/react-annotator/04-markdown.webp',
+      ],
     },
-    demo: true,
     featured: false,
   },
   {
