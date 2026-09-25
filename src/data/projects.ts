@@ -135,7 +135,8 @@ export const projects: Project[] = [
     description:
       "Coding agents take Linear tickets on SyncedSport and ship them through automated code review, CI and merge. High-risk changes wait for me.",
     longDescription:
-      "On SyncedSport, coding agents take Linear tickets and turn them into merged pull requests: 1,375 merged PRs carry the agent label, out of 2,387 merged in the repo. A small FastAPI service receives Linear webhooks, checks their HMAC signatures and keeps a local SQLite cache, so dispatch doesn't hit Linear's rate limits. Tickets run in waves. Each agent works in its own git worktree and has to pass tsc, lint and tests locally, then automated code review runs with a rework loop on major findings, then CI and merge. Most of my effort went into the gate. Diffs that touch authz, tenancy, migrations, auth or billing are held for me even when CI is green, a global hook blocks --no-verify and risky merges, each wave stops at 12 merges, and \"no change needed\" counts as a finished ticket. An escape ledger tracks defects per merged PR: 2 confirmed across 253 recorded merges so far.",
+      "On SyncedSport, coding agents take Linear tickets and turn them into merged pull requests: 1,375 merged PRs carry the agent label, out of 2,387 merged in the repo. A small FastAPI service receives Linear webhooks, checks their HMAC signatures and keeps a local SQLite cache, so dispatch doesn't hit Linear's rate limits. Tickets run in waves. Each agent works in its own git worktree and has to pass tsc, lint and tests locally, then automated code review runs with a rework loop on major findings, then CI and merge. Most of my effort went into the gate. Diffs that touch authz, tenancy, migrations, auth or billing are held for me even when CI is green, a global hook blocks --no-verify and risky merges, each wave stops at 12 merges, and \"no change needed\" counts as a finished ticket. An escape ledger tracks defects per merged PR: 2 confirmed across 253 recorded merges so far. The merge guard, the escape ledger and the gate guidance are open source as agent-merge-safety.",
+    github: 'https://github.com/fisherjoey/agent-merge-safety',
     tech: ['Claude Code', 'GitHub Actions', 'Linear API', 'FastAPI', 'Python'],
     ai: "Claude agents implement and rework tickets; automated LLM code review before every merge",
     images: {
@@ -377,6 +378,80 @@ export const projects: Project[] = [
     live: 'https://tt-save-editor.vercel.app',
     images: {
       dark: ['/projects/tt-save-editor/01-home.webp', '/projects/tt-save-editor/architecture.svg'],
+    },
+    featured: false,
+  },
+  {
+    title: 'Explainer Shorts',
+    category: 'personal',
+    description:
+      'Turns a JSON script into a narrated vertical explainer video: a cloned voice, word-synced captions and an editorial slide deck, from one command.',
+    longDescription:
+      "You write the video as a JSON script of slides and narration. One command voices it with F5-TTS from a short clip of your own voice, times every word with Whisper, and renders a 1080 × 1920 video with Remotion, with karaoke captions that follow the narration. Slides are built from 16 block types (comparisons, code, lists and more) and checked against a schema before anything renders. It started as a personal project and was generalized for release, so you bring your own voice and, optionally, a narrator image. 93 unit tests run in CI without a GPU.",
+    tech: ['TypeScript', 'Remotion', 'Python', 'F5-TTS', 'Whisper'],
+    ai: 'F5-TTS clones the narrator voice; Whisper times every word for the captions',
+    github: 'https://github.com/fisherjoey/explainer-shorts',
+    images: {
+      light: ['/projects/explainer-shorts/architecture.svg'],
+    },
+    featured: false,
+  },
+  {
+    title: 'bw-agent',
+    category: 'personal',
+    description:
+      'Lets coding agents use Bitwarden secrets without the values showing up in the chat. It is scoped to one vault folder and opens a desktop dialog when a secret is missing.',
+    longDescription:
+      "A bash CLI in front of Bitwarden's local bw serve API. An agent asks for a secret by name, and bw-agent puts it in a command's environment or writes it to a file, so the value stays out of the transcript, the terminal and ps output. It only sees one vault folder. When a secret is missing, the agent runs bw-agent request, a desktop dialog opens, and I paste the value straight into the vault instead of into the chat. The README is plain about the limit: it stops accidental leaks, not an agent that sets out to read the vault. 26 tests run against a mock bw serve in CI, alongside shellcheck.",
+    tech: ['Bash', 'Bitwarden CLI', 'jq', 'Claude Code'],
+    ai: 'Built for AI coding agents that need credentials',
+    github: 'https://github.com/fisherjoey/bw-agent',
+    images: {
+      light: ['/projects/bw-agent/architecture.svg'],
+    },
+    featured: false,
+  },
+  {
+    title: 'Stolen Bike Watcher',
+    category: 'personal',
+    description:
+      'Pulls stolen-bike reports from Bike Index and scores local Kijiji and Facebook Marketplace listings by how likely each one is a stolen bike, with a reason for every point.',
+    longDescription:
+      "An LLM cleans each Bike Index report into brand, model and the owner's distinguishing details. A sweep collects every bike listing in the Kijiji region, and a matcher scores each one on serial, brand, model, colour, size, price and those details. Details that show up everywhere, like a kickstand, count for less. On mock data it caught 5 of 6 planted matches where a keyword alert caught 1. On real Calgary data (100 reports, 1,960 listings) it flagged 30 leads. I checked the likeliest against the owners' photos and none was a stolen bike. Real data also exposed four bugs the mock data hid, including a blank serial that matched every listing. Standard-library Python, 18 tests.",
+    tech: ['Python', 'Bike Index API', 'Web scraping', 'Claude Code'],
+    ai: 'An LLM turns messy theft reports into brand, model and distinguishing details',
+    github: 'https://github.com/fisherjoey/stolen-bike-watcher',
+    images: {
+      light: ['/projects/stolen-bike-watcher/architecture.svg'],
+    },
+    featured: false,
+  },
+  {
+    title: 'sc-dualsense',
+    category: 'personal',
+    description:
+      'A Linux daemon that makes a Steam Controller show up as a Sony DualSense, so Proton games that only accept a PlayStation pad can use it.',
+    longDescription:
+      "Kingdom Come: Deliverance II under Proton ignores every Xbox-style controller, but its Sony input path works over hidraw. The daemon reads the virtual pad that Steam Input creates for the Steam Controller and drives a virtual DualSense built on the kernel's /dev/uhid interface. It answers the feature reports the kernel's hid-playstation driver asks for (calibration, pairing and firmware info) with data captured from a real controller, so the stock driver binds and the game sees a DualSense. Standard-library Python, no kernel module.",
+    tech: ['Python', 'Linux', 'HID / uhid', 'Proton'],
+    github: 'https://github.com/fisherjoey/sc-dualsense',
+    images: {
+      light: ['/projects/sc-dualsense/architecture.svg'],
+    },
+    featured: false,
+  },
+  {
+    title: 'song-to-tab',
+    category: 'personal',
+    description:
+      'An experiment in turning a recorded song into a playable guitar tab with open models: source separation, audio-to-MIDI, beat snapping and a fingering model.',
+    longDescription:
+      "A guitar stem is separated with a Mel-Band RoFormer model (or Demucs), transcribed to MIDI with Spotify's Basic Pitch, and snapped to a beat grid from librosa. My glue code shifts it into capo positions and prunes notes a hand couldn't play: a four-fret span, collapsed strums, a voice cap and a chord prior. The tuttut model then picks the fingering and writes an ASCII tab. It gets close on a fingerpicked acoustic song and still needs a guitarist to fix the result. 10 tests run in CI without a GPU.",
+    tech: ['Python', 'PyTorch', 'Basic Pitch', 'librosa', 'MIDI'],
+    ai: 'Open ML models separate the guitar and transcribe the notes',
+    github: 'https://github.com/fisherjoey/song-to-tab',
+    images: {
+      light: ['/projects/song-to-tab/architecture.svg'],
     },
     featured: false,
   },

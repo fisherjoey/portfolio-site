@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="sc-dualsense-arch-title sc-dualsense-arch-desc">
+<title id="sc-dualsense-arch-title">sc-dualsense architecture</title>
+<desc id="sc-dualsense-arch-desc">A daemon reads Steam Input&#x27;s virtual pad and drives a virtual DualSense over uhid, which Proton games read over hidraw.</desc>
+<defs><marker id="sc-dualsense-arch-arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#6B6B73"/></marker></defs>
+<text x="40" y="78" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-size="40">Makes a Steam Controller look like a DualSense</text>
+<line x1="386" y1="402" x2="424" y2="402" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#sc-dualsense-arch-arr)"/>
+<line x1="776" y1="402" x2="814" y2="402" stroke="#6B6B73" stroke-width="2.5" marker-end="url(#sc-dualsense-arch-arr)"/>
+<rect x="40" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="56" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">INPUT</text>
+<rect x="52" y="339" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="68" y="382" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Steam Controller</text>
+<text x="68" y="415" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Via Steam Input&#x27;s</text>
+<text x="68" y="440" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">virtual Xbox pad</text>
+<rect x="430" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="446" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">DAEMON</text>
+<rect x="442" y="268" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="458" y="311" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Input mapping</text>
+<text x="458" y="344" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Reads evdev events</text>
+<text x="458" y="369" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Buttons, sticks, triggers</text>
+<rect x="442" y="410" width="316" height="126" rx="8" fill="#FFFFFF" stroke="#1D3A5F" stroke-width="2.5"/>
+<text x="458" y="453" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Virtual DualSense</text>
+<text x="458" y="486" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Built over /dev/uhid</text>
+<text x="458" y="511" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Sony HID reports</text>
+<rect x="820" y="128" width="340" height="512" rx="10" fill="rgba(26,26,26,0.035)"/>
+<text x="836" y="158" fill="#A08758" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="2">OUTPUT</text>
+<rect x="832" y="339" width="316" height="126" rx="8" fill="#FFFFFF" stroke="rgba(26,26,26,0.18)" stroke-width="1.5"/>
+<text x="848" y="382" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="29" font-weight="700">Game under Proton</text>
+<text x="848" y="415" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">hid-playstation binds</text>
+<text x="848" y="440" fill="#4A4A50" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20">Game reads hidraw</text>
+<text x="40" y="700" fill="#1A1A1A" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-style="italic" font-size="27">No kernel module needed: the stock Linux driver does the rest.</text>
+</svg>
